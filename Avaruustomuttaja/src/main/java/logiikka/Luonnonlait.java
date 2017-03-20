@@ -20,10 +20,7 @@ public class Luonnonlait {
     }
     
     public boolean onkoMassaa(Kappale kappale) {
-        if (kappale.getMassa() <= 0) {
-            return false;
-        }
-        return true;
+        return kappale.getMassa() > 0;
     }
     
 }
