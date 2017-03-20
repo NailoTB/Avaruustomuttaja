@@ -23,4 +23,9 @@ public class Luonnonlait {
         return kappale.getMassa() > 0;
     }
     
+    public void kappaleetLiikkuu(ArrayList<Kappale> kappaleet) {
+        for (Kappale kappale : kappaleet) {
+            kappale.muutaPaikka();
+        }
+    }
 }
