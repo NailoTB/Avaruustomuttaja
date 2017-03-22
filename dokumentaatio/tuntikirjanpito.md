@@ -5,3 +5,4 @@ Päivä | Tunnit | Kuvaus
 20.03.2017 | 1.0h | Projektin logiikan pohdintaa
 20.03.2017 | 1.0h | Ensimmäisten luokkien luominen
 21.03.2017 | 0.5h | Luokkien parantelua ja suunnittelua
+22.03.2017 | 2.0h | Testien luomista
