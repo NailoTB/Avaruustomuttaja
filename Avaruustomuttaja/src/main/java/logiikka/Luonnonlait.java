@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 public class Luonnonlait {
     private double G = 6.674 * Math.pow(10, -11);
+    private double T;
+    
+    public Luonnonlait(double aika_askel) {
+        T = aika_askel;
+    }
     
     public void gravitaatio(Kappale kappale, ArrayList<Kappale> kappaleet) {
         double deltaNopeusX = 0;
@@ -13,8 +18,8 @@ public class Luonnonlait {
 
         for (Kappale vetaja : kappaleet) {
             
-            deltaNopeusX += G * vetaja.getMassa()/ Math.pow((vetaja.getPaikkaX() - kappale.getPaikkaX()),2);
-            deltaNopeusY += G * vetaja.getMassa()/ Math.pow((vetaja.getPaikkaY() - kappale.getPaikkaY()),2);
+            deltaNopeusX += T * G * vetaja.getMassa()/ Math.pow((vetaja.getPaikkaX() - kappale.getPaikkaX()),2);
+            deltaNopeusY += T * G * vetaja.getMassa()/ Math.pow((vetaja.getPaikkaY() - kappale.getPaikkaY()),2);
         }
         
         kappale.muutaNopeus(deltaNopeusX, deltaNopeusY);
@@ -26,7 +31,7 @@ public class Luonnonlait {
     
     public void kappaleetLiikkuu(ArrayList<Kappale> kappaleet) {
         for (Kappale kappale : kappaleet) {
-            kappale.muutaPaikka();
+            kappale.muutaPaikka(T);
         }
     }
 }

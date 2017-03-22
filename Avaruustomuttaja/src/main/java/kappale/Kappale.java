@@ -38,9 +38,9 @@ public class Kappale {
         return paikkay;
     }
 
-    public void muutaPaikka() {
-        this.paikkax += this.nopeus.getX();
-        this.paikkay += this.nopeus.getY();
+    public void muutaPaikka(double aika) {
+        this.paikkax += this.nopeus.getX() * aika;
+        this.paikkay += this.nopeus.getY() * aika;
     }
     
     public void muutaNopeus(double muutos1, double muutos2) {
