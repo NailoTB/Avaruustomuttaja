@@ -1,5 +1,5 @@
 
-package kappale;
+package avaruustomuttaja.kappale;
 
 public class Vektori {
     private double x;

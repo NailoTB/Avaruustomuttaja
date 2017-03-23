@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logiikka;
+package avaruustomuttaja.logiikka;
 
+import avaruustomuttaja.logiikka.Luonnonlait;
 import java.util.ArrayList;
-import kappale.Kappale;
+import avaruustomuttaja.kappale.Kappale;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

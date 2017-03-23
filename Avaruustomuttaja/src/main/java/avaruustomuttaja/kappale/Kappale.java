@@ -1,4 +1,4 @@
-package kappale;
+package avaruustomuttaja.kappale;
 
 public class Kappale {
 

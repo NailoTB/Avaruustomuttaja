@@ -1,15 +1,12 @@
-package logiikka;
+package avaruustomuttaja.logiikka;
 
-import kappale.Kappale;
+import avaruustomuttaja.kappale.Kappale;
 import java.util.ArrayList;
 
 public class Luonnonlait {
 
     private double G = 6; //6.674*10^-11
     private double T;
-
-    public static void main(String[] args) {
-    }
 
     public Luonnonlait() {
         T = 1;
@@ -33,20 +30,27 @@ public class Luonnonlait {
         for (Kappale vetaja : kappaleet) {
             int suuntaX = 1;
             int suuntaY = 1;
-            
+
             if (vetaja.getPaikkaX() == kappale.getPaikkaX() && vetaja.getPaikkaY() == kappale.getPaikkaY()) {
                 continue;
             }
-            
+
             if (vetaja.getPaikkaX() < kappale.getPaikkaX()) {
                 suuntaX = -1;
             }
+
             if (vetaja.getPaikkaY() < kappale.getPaikkaY()) {
                 suuntaY = -1;
             }
             
-            deltaNopeusX += suuntaX * T * G * vetaja.getMassa() / Math.pow((vetaja.getPaikkaX() - kappale.getPaikkaX()), 2);
-            deltaNopeusY += suuntaY * T * G * vetaja.getMassa() / Math.pow((vetaja.getPaikkaY() - kappale.getPaikkaY()), 2);
+            if (!(vetaja.getPaikkaX() == kappale.getPaikkaX())) {
+                deltaNopeusX += suuntaX * T * G * vetaja.getMassa() / Math.pow((vetaja.getPaikkaX() - kappale.getPaikkaX()), 2);
+            }
+            
+            if (!(vetaja.getPaikkaY() == kappale.getPaikkaY())) {
+                deltaNopeusY += suuntaY * T * G * vetaja.getMassa() / Math.pow((vetaja.getPaikkaY() - kappale.getPaikkaY()), 2);
+            }
+
         }
 
         kappale.muutaNopeus(deltaNopeusX, deltaNopeusY);

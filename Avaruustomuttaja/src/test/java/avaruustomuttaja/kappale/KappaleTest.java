@@ -1,5 +1,6 @@
-package kappale;
+package avaruustomuttaja.kappale;
 
+import avaruustomuttaja.kappale.Kappale;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
