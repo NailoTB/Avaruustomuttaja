@@ -6,3 +6,6 @@ Päivä | Tunnit | Kuvaus
 20.03.2017 | 1.0h | Ensimmäisten luokkien luominen
 21.03.2017 | 0.5h | Luokkien parantelua ja suunnittelua
 22.03.2017 | 2.0h | Testien luomista
+23.03.2017 | 0.5h | Testien viimeistely
+23.03.2017 | 1.0h | pit ja checkstyle korjaukset
+23.03.2017 | 0.5h | Luokkakaavion suunnittelu
