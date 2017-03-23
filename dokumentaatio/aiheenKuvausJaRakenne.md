@@ -10,3 +10,8 @@ Kappaleet voivat törmätä, yhdistyä ja repiä toisia kappaleita pienemmiksi k
 * kappaleiden liikkeiden seuraaminen
 * kappaleiden lisääminen
 * kappaleiden ratojen muokkaaminen
+
+
+**Luokkakaavio:**
+
+![Luokkakaavio](https://github.com/NailoTB/Avaruustomuttaja/blob/master/dokumentaatio/luokkakaavio.png)
