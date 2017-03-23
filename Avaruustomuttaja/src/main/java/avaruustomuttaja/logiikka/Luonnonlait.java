@@ -5,22 +5,22 @@ import java.util.ArrayList;
 
 public class Luonnonlait {
 
-    private double G = 6; //6.674*10^-11
-    private double T;
+    private double g = 6; //6.674*10^-11
+    private double t;
 
     public Luonnonlait() {
-        T = 1;
+        t = 1;
     }
 
-    public Luonnonlait(double aika_askel) {
-        T = aika_askel;
-        if (T <= 0) {
-            T = 1;
+    public Luonnonlait(double aikaAskel) {
+        t = aikaAskel;
+        if (t <= 0) {
+            t = 1;
         }
     }
 
     public double getAika() {
-        return T;
+        return t;
     }
 
     public void gravitaatio(Kappale kappale, ArrayList<Kappale> kappaleet) {
@@ -44,11 +44,11 @@ public class Luonnonlait {
             }
             
             if (!(vetaja.getPaikkaX() == kappale.getPaikkaX())) {
-                deltaNopeusX += suuntaX * T * G * vetaja.getMassa() / Math.pow((vetaja.getPaikkaX() - kappale.getPaikkaX()), 2);
+                deltaNopeusX += suuntaX * t * g * vetaja.getMassa() / Math.pow((vetaja.getPaikkaX() - kappale.getPaikkaX()), 2);
             }
             
             if (!(vetaja.getPaikkaY() == kappale.getPaikkaY())) {
-                deltaNopeusY += suuntaY * T * G * vetaja.getMassa() / Math.pow((vetaja.getPaikkaY() - kappale.getPaikkaY()), 2);
+                deltaNopeusY += suuntaY * t * g * vetaja.getMassa() / Math.pow((vetaja.getPaikkaY() - kappale.getPaikkaY()), 2);
             }
 
         }
@@ -62,7 +62,7 @@ public class Luonnonlait {
 
     public void kappaleetLiikkuu(ArrayList<Kappale> kappaleet) {
         for (Kappale kappale : kappaleet) {
-            kappale.muutaPaikka(T);
+            kappale.muutaPaikka(t);
         }
     }
 }
