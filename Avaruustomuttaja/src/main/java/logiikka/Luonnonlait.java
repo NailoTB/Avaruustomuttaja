@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Luonnonlait {
 
-    private double G = 6.674; //kymmenpotenssit pois kunnes keksin paremmat yksikot
+    private double G = 6; //6.674*10^-11
     private double T;
 
     public static void main(String[] args) {
@@ -31,13 +31,22 @@ public class Luonnonlait {
         double deltaNopeusY = 0;
 
         for (Kappale vetaja : kappaleet) {
-
+            int suuntaX = 1;
+            int suuntaY = 1;
+            
             if (vetaja.getPaikkaX() == kappale.getPaikkaX() && vetaja.getPaikkaY() == kappale.getPaikkaY()) {
                 continue;
             }
-                //tahan jotain if erotus negatiivinen juttui
-            deltaNopeusX += T * G * vetaja.getMassa() / Math.pow((vetaja.getPaikkaX() - kappale.getPaikkaX()), 2);
-            deltaNopeusY += T * G * vetaja.getMassa() / Math.pow((vetaja.getPaikkaY() - kappale.getPaikkaY()), 2);
+            
+            if (vetaja.getPaikkaX() < kappale.getPaikkaX()) {
+                suuntaX = -1;
+            }
+            if (vetaja.getPaikkaY() < kappale.getPaikkaY()) {
+                suuntaY = -1;
+            }
+            
+            deltaNopeusX += suuntaX * T * G * vetaja.getMassa() / Math.pow((vetaja.getPaikkaX() - kappale.getPaikkaX()), 2);
+            deltaNopeusY += suuntaY * T * G * vetaja.getMassa() / Math.pow((vetaja.getPaikkaY() - kappale.getPaikkaY()), 2);
         }
 
         kappale.muutaNopeus(deltaNopeusX, deltaNopeusY);

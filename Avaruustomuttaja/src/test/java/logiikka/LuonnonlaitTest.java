@@ -22,13 +22,13 @@ public class LuonnonlaitTest {
     Kappale kappale2;
     Kappale kappale3;
     ArrayList<Kappale> kappaleet;
-    
+
     @Before
     public void setUp() {
         lait = new Luonnonlait(2.5);
         kappaleet = new ArrayList<>();
-        kappale = new Kappale(7.4, 5.3, -2.5, 4.7, -0.2);
-        kappaleet.add((new Kappale(5.0, 1, 0)));
+        kappale = new Kappale(7, 5, -2, 4, 0);
+        kappaleet.add((new Kappale(5, 1, 0)));
         kappaleet.add((new Kappale(10, -2, 5)));
         kappaleet.add(kappale);
     }
@@ -43,8 +43,25 @@ public class LuonnonlaitTest {
         Luonnonlait lait2 = new Luonnonlait(-4);
         assertEquals(1, lait2.getAika(), 0.0);
     }
-    
+
     @Test
     public void kappaleKokeeGravitaatiovuorovaikutuksenOikein() {
+        lait.gravitaatio(kappale, kappaleet);
+        assertEquals(-3.7487, kappale.getNopeusX(), 0.01);
+        assertEquals(21.8112, kappale.getNopeusY(), 0.01);
+    }
+
+    @Test
+    public void kappaleetLiikkuvatOikein() {
+        lait.kappaleetLiikkuu(kappaleet);
+        kappale2 = kappaleet.get(1);
+        assertEquals(kappale2.getPaikkaX() + kappale2.getNopeusX() * 2.5, kappale2.getPaikkaX(), 0.00);
+        assertEquals(kappale2.getPaikkaY() + kappale2.getNopeusY() * 2.5, kappale2.getPaikkaY(), 0.00);
+    }
+
+    @Test
+    public void onkoMassaaToimii() {
+        Kappale massaton = new Kappale(-2, 4, -3);
+        assertFalse(lait.onkoMassaa(massaton));
     }
 }
