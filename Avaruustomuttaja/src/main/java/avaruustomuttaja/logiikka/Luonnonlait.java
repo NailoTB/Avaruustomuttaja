@@ -47,13 +47,9 @@ public class Luonnonlait {
                 suuntaY = -1;
             }
 
-            if (!(vetaja.getPaikkaX() == kappale.getPaikkaX())) {
                 deltaNopeusX += suuntaX * t * voimanXKomponentinLaskija(voima, kulma);
-            }
-
-            if (!(vetaja.getPaikkaY() == kappale.getPaikkaY())) {
                 deltaNopeusY += suuntaY * t * voimanYKomponentinLaskija(voima, kulma);
-            }
+
 
         }
 
