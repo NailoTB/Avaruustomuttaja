@@ -28,13 +28,17 @@ public class Luonnonlait {
         double deltaNopeusY = 0;
 
         for (Kappale vetaja : kappaleet) {
-            int suuntaX = 1;
-            int suuntaY = 1;
-
             if (vetaja.getPaikkaX() == kappale.getPaikkaX() && vetaja.getPaikkaY() == kappale.getPaikkaY()) {
                 continue;
             }
 
+            int suuntaX = 1;
+            int suuntaY = 1;
+            int deltapaikkaX = Math.abs(vetaja.getPaikkaX() - kappale.getPaikkaX());
+            int deltapaikkaY = Math.abs(vetaja.getPaikkaY() - kappale.getPaikkaY());
+            double etaisyys = etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
+            double kulma = kulmanLaskija(deltapaikkaX, deltapaikkaY);
+            double voima = voimanLaskija(kappale, vetaja, etaisyys);
             if (vetaja.getPaikkaX() < kappale.getPaikkaX()) {
                 suuntaX = -1;
             }
@@ -42,18 +46,43 @@ public class Luonnonlait {
             if (vetaja.getPaikkaY() < kappale.getPaikkaY()) {
                 suuntaY = -1;
             }
-            
+
             if (!(vetaja.getPaikkaX() == kappale.getPaikkaX())) {
-                deltaNopeusX += suuntaX * t * g * vetaja.getMassa() / Math.pow((vetaja.getPaikkaX() - kappale.getPaikkaX()), 2);
+                deltaNopeusX += suuntaX * t * voimanXKomponentinLaskija(voima, kulma);
             }
-            
+
             if (!(vetaja.getPaikkaY() == kappale.getPaikkaY())) {
-                deltaNopeusY += suuntaY * t * g * vetaja.getMassa() / Math.pow((vetaja.getPaikkaY() - kappale.getPaikkaY()), 2);
+                deltaNopeusY += suuntaY * t * voimanYKomponentinLaskija(voima, kulma);
             }
 
         }
 
         kappale.muutaNopeus(deltaNopeusX, deltaNopeusY);
+    }
+
+    public double kulmanLaskija(int deltaPaikkaX, int deltaPaikkaY) {
+        double kulma = Math.atan(deltaPaikkaX / deltaPaikkaY);
+        return kulma;
+    }
+    
+    public double voimanLaskija(Kappale kappale, Kappale vetaja, double etaisyys) {
+        double voima = g * vetaja.getMassa() / Math.pow(etaisyys, 2);
+        return voima;
+    }
+
+    public double etaisyydenLaskija(int deltaPaikkaX, int deltaPaikkaY) {
+        double etaisyys = Math.sqrt(Math.pow(deltaPaikkaX, 2) + Math.pow(deltaPaikkaY, 2));
+        return etaisyys;
+    }
+
+    public double voimanXKomponentinLaskija(double voima, double kulma) {
+        double voimaX = Math.sqrt(Math.pow(voima, 2) - Math.pow(voima * Math.sin(kulma), 2));
+        return voimaX;
+    }
+
+    public double voimanYKomponentinLaskija(double voima, double kulma) {
+        double voimaX = Math.sqrt(Math.pow(voima, 2) - Math.pow(voima * Math.cos(kulma), 2));
+        return voimaX;
     }
 
     public boolean onkoMassaa(Kappale kappale) {
