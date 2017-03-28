@@ -9,3 +9,5 @@ Päivä | Tunnit | Kuvaus
 23.03.2017 | 0.5h | Testien viimeistely
 23.03.2017 | 1.0h | pit ja checkstyle korjaukset
 23.03.2017 | 0.5h | Luokkakaavion suunnittelu
+28.03.2017 | 1.5h | Käyttöliittymän koodaus
+28.03.2017 | 1.5h | Painovoiman logiikan korjaus
