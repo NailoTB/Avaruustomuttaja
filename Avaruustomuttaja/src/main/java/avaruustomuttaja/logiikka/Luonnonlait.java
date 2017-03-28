@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Luonnonlait {
 
-    private double g = 6; //6.674*10^-11
+    private double g = 6;
     private double t;
 
     public Luonnonlait() {
