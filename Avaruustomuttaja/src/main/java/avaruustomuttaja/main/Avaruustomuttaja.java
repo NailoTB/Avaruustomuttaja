@@ -20,8 +20,8 @@ public class Avaruustomuttaja {
         
             
         ArrayList<Kappale> kappaleet = new ArrayList<>();
-        kappaleet.add((new Kappale(5, 100, 100, 1, 0)));
-        kappaleet.add((new Kappale(10, 280, 280)));
+        kappaleet.add((new Kappale(500, 100, 100, 1, 0)));
+        kappaleet.add((new Kappale(100, 280, 280)));
         Luonnonlait lait = new Luonnonlait(1);
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(kappaleet, lait);
         SwingUtilities.invokeLater(kayttoliittyma);

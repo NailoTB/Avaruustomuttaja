@@ -34,8 +34,8 @@ public class Luonnonlait {
 
             int suuntaX = 1;
             int suuntaY = 1;
-            int deltapaikkaX = Math.abs(vetaja.getPaikkaX() - kappale.getPaikkaX());
-            int deltapaikkaY = Math.abs(vetaja.getPaikkaY() - kappale.getPaikkaY());
+            double deltapaikkaX = Math.abs(vetaja.getPaikkaX() - kappale.getPaikkaX());
+            double deltapaikkaY = Math.abs(vetaja.getPaikkaY() - kappale.getPaikkaY());
             double etaisyys = etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
             double kulma = kulmanLaskija(deltapaikkaX, deltapaikkaY);
             double voima = voimanLaskija(kappale, vetaja, etaisyys);
@@ -47,26 +47,28 @@ public class Luonnonlait {
                 suuntaY = -1;
             }
 
-                deltaNopeusX += suuntaX * t * voimanXKomponentinLaskija(voima, kulma);
-                deltaNopeusY += suuntaY * t * voimanYKomponentinLaskija(voima, kulma);
-
+            deltaNopeusX += suuntaX * t * voimanXKomponentinLaskija(voima, kulma);
+            deltaNopeusY += suuntaY * t * voimanYKomponentinLaskija(voima, kulma);
 
         }
 
         kappale.muutaNopeus(deltaNopeusX, deltaNopeusY);
     }
 
-    public double kulmanLaskija(int deltaPaikkaX, int deltaPaikkaY) {
+    public double kulmanLaskija(double deltaPaikkaX, double deltaPaikkaY) {
+        if (deltaPaikkaY == 0) {
+            return 0;
+        }
         double kulma = Math.atan(deltaPaikkaX / deltaPaikkaY);
         return kulma;
     }
-    
+
     public double voimanLaskija(Kappale kappale, Kappale vetaja, double etaisyys) {
         double voima = g * vetaja.getMassa() / Math.pow(etaisyys, 2);
         return voima;
     }
 
-    public double etaisyydenLaskija(int deltaPaikkaX, int deltaPaikkaY) {
+    public double etaisyydenLaskija(double deltaPaikkaX, double deltaPaikkaY) {
         double etaisyys = Math.sqrt(Math.pow(deltaPaikkaX, 2) + Math.pow(deltaPaikkaY, 2));
         return etaisyys;
     }
@@ -77,8 +79,8 @@ public class Luonnonlait {
     }
 
     public double voimanYKomponentinLaskija(double voima, double kulma) {
-        double voimaX = Math.sqrt(Math.pow(voima, 2) - Math.pow(voima * Math.cos(kulma), 2));
-        return voimaX;
+        double voimaY = Math.sqrt(Math.pow(voima, 2) - Math.pow(voima * Math.cos(kulma), 2));
+        return voimaY;
     }
 
     public boolean onkoMassaa(Kappale kappale) {
