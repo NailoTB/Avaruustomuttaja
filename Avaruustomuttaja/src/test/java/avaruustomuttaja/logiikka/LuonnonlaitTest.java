@@ -94,7 +94,7 @@ public class LuonnonlaitTest {
         double etaisyys = lait.etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
         double kulma = lait.kulmanLaskija(deltapaikkaX, deltapaikkaY);
         double voima = lait.voimanLaskija(kappale, kappale2, etaisyys);
-        assertEquals(1.49235, lait.voimanYKomponentinLaskija(voima, kulma), 0.001);
+        assertEquals(0.7461, lait.voimanYKomponentinLaskija(voima, kulma), 0.001);
     }
 
     @Test
@@ -105,7 +105,7 @@ public class LuonnonlaitTest {
         double etaisyys = lait.etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
         double kulma = lait.kulmanLaskija(deltapaikkaX, deltapaikkaY);
         double voima = lait.voimanLaskija(kappale, kappale2, etaisyys);
-        assertEquals(0.7464, lait.voimanXKomponentinLaskija(voima, kulma), 0.001);
+        assertEquals(1.4923, lait.voimanXKomponentinLaskija(voima, kulma), 0.001);
     }
 
     @Test
