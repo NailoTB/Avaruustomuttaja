@@ -5,7 +5,6 @@
  */
 package avaruustomuttaja.logiikka;
 
-import avaruustomuttaja.logiikka.Luonnonlait;
 import java.util.ArrayList;
 import avaruustomuttaja.kappale.Kappale;
 import org.junit.Before;
@@ -26,7 +25,7 @@ public class LuonnonlaitTest {
 
     @Before
     public void setUp() {
-        lait = new Luonnonlait(2.5);
+        lait = new Luonnonlait();
         kappaleet = new ArrayList<>();
         kappale = new Kappale(7, 5, -2, 4, 0);
         kappaleet.add((new Kappale(5, 1, 0)));
@@ -34,22 +33,57 @@ public class LuonnonlaitTest {
         kappaleet.add(kappale);
     }
 
+//    @Test
+//    public void kappaleKokeeGravitaatiovuorovaikutuksenOikein() {
+//        lait.gravitaatio(kappale, kappaleet);
+//        assertEquals(-3.7487, kappale.getNopeusX(), 0.01);
+//        assertEquals(21.8112, kappale.getNopeusY(), 0.01);
+//    }
     @Test
-    public void luonnonlaitLuodaanOikein() {
-        assertEquals(2.5, lait.getAika(), 0.0);
+    public void kulmaLasketaanOikein() {
+        kappale2 = kappaleet.get(0);
+        double deltapaikkaX = Math.abs(kappale2.getPaikkaX() - kappale.getPaikkaX());
+        double deltapaikkaY = Math.abs(kappale2.getPaikkaY() - kappale.getPaikkaY());
+        assertEquals(1.107, lait.kulmanLaskija(deltapaikkaX, deltapaikkaY), 0.001);
     }
 
     @Test
-    public void aikaEiNegatiivinen() {
-        Luonnonlait lait2 = new Luonnonlait(-4);
-        assertEquals(1, lait2.getAika(), 0.0);
+    public void etaisyysLasketaanOikein() {
+        kappale2 = kappaleet.get(0);
+        double deltapaikkaX = Math.abs(kappale2.getPaikkaX() - kappale.getPaikkaX());
+        double deltapaikkaY = Math.abs(kappale2.getPaikkaY() - kappale.getPaikkaY());
+        assertEquals(4.472, lait.etaisyydenLaskija(deltapaikkaX, deltapaikkaY), 0.001);
     }
 
     @Test
-    public void kappaleKokeeGravitaatiovuorovaikutuksenOikein() {
-        lait.gravitaatio(kappale, kappaleet);
-        assertEquals(-3.7487, kappale.getNopeusX(), 0.01);
-        assertEquals(21.8112, kappale.getNopeusY(), 0.01);
+    public void kokonaisvoimaLasketaanOikein() {
+        kappale2 = kappaleet.get(0);
+        double deltapaikkaX = Math.abs(kappale2.getPaikkaX() - kappale.getPaikkaX());
+        double deltapaikkaY = Math.abs(kappale2.getPaikkaY() - kappale.getPaikkaY());
+        double etaisyys = lait.etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
+        assertEquals(1.6686, lait.voimanLaskija(kappale, kappale2, etaisyys), 0.001);
+    }
+
+    @Test
+    public void voimanYKomponenttiLasketaanOikein() {
+        kappale2 = kappaleet.get(0);
+        double deltapaikkaX = Math.abs(kappale2.getPaikkaX() - kappale.getPaikkaX());
+        double deltapaikkaY = Math.abs(kappale2.getPaikkaY() - kappale.getPaikkaY());
+        double etaisyys = lait.etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
+        double kulma = lait.kulmanLaskija(deltapaikkaX, deltapaikkaY);
+        double voima = lait.voimanLaskija(kappale, kappale2, etaisyys);
+        assertEquals(1.49235, lait.voimanYKomponentinLaskija(voima, kulma), 0.001);
+    }
+
+    @Test
+    public void voimanXKomponenttiLasketaanOikein() {
+        kappale2 = kappaleet.get(0);
+        double deltapaikkaX = Math.abs(kappale2.getPaikkaX() - kappale.getPaikkaX());
+        double deltapaikkaY = Math.abs(kappale2.getPaikkaY() - kappale.getPaikkaY());
+        double etaisyys = lait.etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
+        double kulma = lait.kulmanLaskija(deltapaikkaX, deltapaikkaY);
+        double voima = lait.voimanLaskija(kappale, kappale2, etaisyys);
+        assertEquals(0.7464, lait.voimanXKomponentinLaskija(voima, kulma), 0.001);
     }
 
     @Test

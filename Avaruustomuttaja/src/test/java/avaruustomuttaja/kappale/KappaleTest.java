@@ -1,6 +1,5 @@
 package avaruustomuttaja.kappale;
 
-import avaruustomuttaja.kappale.Kappale;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -48,25 +47,10 @@ public class KappaleTest {
     }
 
     @Test
-    public void paikkaEiMuutuNollallaSekunnilla() {
-        uusikappale.muutaPaikka(0);
-        assertEquals(2, uusikappale.getPaikkaX(), 0.0);
-        assertEquals(1, uusikappale.getPaikkaY(), 0.0);
-    }
-
-    @Test
-    public void paikkaMuuttuuOikeinYhdellaSekunnilla() {
-        uusikappale.muutaPaikka(1);
+    public void paikkaMuuttuuOikein() {
+        uusikappale.muutaPaikka();
         assertEquals(2 + 2.8, uusikappale.getPaikkaX(), 0.0);
         assertEquals(1 + 3.1, uusikappale.getPaikkaY(), 0.0);
-    }
-
-    @Test
-    public void paikkaMuuttuuOikeinSatunnaisellaAjalla() {
-        double aika = randomoija.nextInt();
-        uusikappale.muutaPaikka(aika);
-        assertEquals(2 + (2.8 * aika), uusikappale.getPaikkaX(), 0.0);
-        assertEquals(1 + (3.1 * aika), uusikappale.getPaikkaY(), 0.0);
     }
 
     @Test

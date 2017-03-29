@@ -25,7 +25,7 @@ public class Avaruustomuttaja {
         kappaleet.add((new Kappale(50, 250, 100, 1, 0)));
         kappaleet.add((new Kappale(200, 400, 400)));
         kappaleet.add((new Kappale(20, 300, 220)));
-        Luonnonlait lait = new Luonnonlait(1);
+        Luonnonlait lait = new Luonnonlait();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(kappaleet, lait);
         SwingUtilities.invokeLater(kayttoliittyma);
         kayttoliittyma.piirraUusiks();

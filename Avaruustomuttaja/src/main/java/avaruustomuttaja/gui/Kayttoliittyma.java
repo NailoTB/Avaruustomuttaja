@@ -14,6 +14,7 @@ public class Kayttoliittyma implements Runnable {
     private ArrayList<Kappale> kappaleet;
     Piirtoalusta piirtoalusta;
     Luonnonlait lait;
+    
     public Kayttoliittyma() {
     }
 
@@ -21,8 +22,6 @@ public class Kayttoliittyma implements Runnable {
         this.kappaleet = kappaleet;
         piirtoalusta = new Piirtoalusta(this.kappaleet);
         this.lait = lait;
-        
-
     }
 
     @Override

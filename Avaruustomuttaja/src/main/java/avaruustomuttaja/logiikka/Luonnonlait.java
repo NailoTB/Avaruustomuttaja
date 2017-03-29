@@ -5,22 +5,9 @@ import java.util.ArrayList;
 
 public class Luonnonlait {
 
-    private double g = 6;
-    private double t;
+    private double g = 6.674;
 
     public Luonnonlait() {
-        t = 1;
-    }
-
-    public Luonnonlait(double aikaAskel) {
-        t = aikaAskel;
-        if (t <= 0) {
-            t = 1;
-        }
-    }
-
-    public double getAika() {
-        return t;
     }
 
     public void gravitaatio(Kappale kappale, ArrayList<Kappale> kappaleet) {
@@ -47,8 +34,8 @@ public class Luonnonlait {
                 suuntaY = -1;
             }
 
-            deltaNopeusX += suuntaX * t * voimanXKomponentinLaskija(voima, kulma);
-            deltaNopeusY += suuntaY * t * voimanYKomponentinLaskija(voima, kulma);
+            deltaNopeusX += suuntaX * voimanXKomponentinLaskija(voima, kulma);
+            deltaNopeusY += suuntaY * voimanYKomponentinLaskija(voima, kulma);
 
         }
 
@@ -89,7 +76,7 @@ public class Luonnonlait {
 
     public void kappaleetLiikkuu(ArrayList<Kappale> kappaleet) {
         for (Kappale kappale : kappaleet) {
-            kappale.muutaPaikka(t);
+            kappale.muutaPaikka();
         }
     }
 }
