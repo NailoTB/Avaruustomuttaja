@@ -28,7 +28,7 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Avaruustomuttaja");
-        frame.setPreferredSize(new Dimension(1000, 1000));
+        frame.setPreferredSize(new Dimension(1500, 1000));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

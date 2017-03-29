@@ -20,8 +20,9 @@ public class Avaruustomuttaja {
     public static void main(String[] args) throws InterruptedException {
 
         ArrayList<Kappale> kappaleet = new ArrayList<>();
-        kappaleet.add((new Kappale(500, 300, 500)));
-        kappaleet.add((new Kappale(100, 500, 500, 0, 4)));
+        kappaleet.add((new Kappale(1000, 500, 500)));
+        kappaleet.add((new Kappale(200, 500, 200, 5, 0)));
+        //Täällä voi lisätä kappaleita, jos haluat
         Luonnonlait lait = new Luonnonlait();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(kappaleet, lait);
         SwingUtilities.invokeLater(kayttoliittyma);
