@@ -71,12 +71,12 @@ public class Luonnonlait {
     }
 
     public double voimanXKomponentinLaskija(double voima, double kulma) {
-        double voimaX = Math.sqrt(Math.pow(voima, 2) - Math.pow(voima * Math.sin(kulma), 2));
+        double voimaX = Math.sqrt(Math.pow(voima, 2) - Math.pow(voima * Math.cos(kulma), 2));
         return voimaX;
     }
 
     public double voimanYKomponentinLaskija(double voima, double kulma) {
-        double voimaY = Math.sqrt(Math.pow(voima, 2) - Math.pow(voima * Math.cos(kulma), 2));
+        double voimaY = Math.sqrt(Math.pow(voima, 2) - Math.pow(voima * Math.sin(kulma), 2));
         return voimaY;
     }
 

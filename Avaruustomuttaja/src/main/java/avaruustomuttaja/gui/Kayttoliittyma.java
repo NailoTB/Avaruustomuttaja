@@ -45,14 +45,13 @@ public class Kayttoliittyma implements Runnable {
 
     public void piirraUusiks() throws InterruptedException {
         while (true) {
-
             for (Kappale kappale : kappaleet) {
                 lait.gravitaatio(kappale, kappaleet);
             }
-
             this.lait.kappaleetLiikkuu(kappaleet);
+
             piirtoalusta.repaint();
-            TimeUnit.MILLISECONDS.sleep(100);
+            TimeUnit.MILLISECONDS.sleep(50);
         }
     }
 
