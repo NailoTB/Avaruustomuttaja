@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 public class Piirtoalusta extends JPanel {
 
     ArrayList<Kappale> kappaleet;
-    
+
     public Piirtoalusta(ArrayList<Kappale> kappaleet) {
         super.setBackground(Color.WHITE);
         this.kappaleet = kappaleet;
@@ -18,10 +18,10 @@ public class Piirtoalusta extends JPanel {
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
-        
-        for(Kappale kappale : kappaleet) {
+
+        for (Kappale kappale : kappaleet) {
             kappale.piirra(graphics);
         }
     }
-    
+
 }

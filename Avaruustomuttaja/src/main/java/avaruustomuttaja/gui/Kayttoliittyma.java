@@ -8,13 +8,14 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
     private ArrayList<Kappale> kappaleet;
     Piirtoalusta piirtoalusta;
     Luonnonlait lait;
-    
+
     public Kayttoliittyma() {
     }
 
@@ -43,14 +44,15 @@ public class Kayttoliittyma implements Runnable {
     }
 
     public void piirraUusiks() throws InterruptedException {
-        while(true) {
-        for(Kappale kappale : kappaleet) {
-            lait.gravitaatio(kappale, kappaleet);
-        }
-            
-        this.lait.kappaleetLiikkuu(kappaleet);
-        piirtoalusta.repaint();
-        TimeUnit.MILLISECONDS.sleep(100);
+        while (true) {
+
+            for (Kappale kappale : kappaleet) {
+                lait.gravitaatio(kappale, kappaleet);
+            }
+
+            this.lait.kappaleetLiikkuu(kappaleet);
+            piirtoalusta.repaint();
+            TimeUnit.MILLISECONDS.sleep(100);
         }
     }
 
