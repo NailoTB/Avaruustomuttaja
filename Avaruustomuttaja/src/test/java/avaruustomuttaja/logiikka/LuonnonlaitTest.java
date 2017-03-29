@@ -29,16 +29,38 @@ public class LuonnonlaitTest {
         kappaleet = new ArrayList<>();
         kappale = new Kappale(7, 5, -2, 4, 0);
         kappaleet.add((new Kappale(5, 1, 0)));
-        kappaleet.add((new Kappale(10, -2, 5)));
         kappaleet.add(kappale);
     }
 
-//    @Test
-//    public void kappaleKokeeGravitaatiovuorovaikutuksenOikein() {
-//        lait.gravitaatio(kappale, kappaleet);
-//        assertEquals(-3.7487, kappale.getNopeusX(), 0.01);
-//        assertEquals(21.8112, kappale.getNopeusY(), 0.01);
-//    }
+    @Test
+    public void laitLuodaanOikein() {
+        assertNotNull(lait);
+        assertSame(lait, lait);
+    }
+
+    @Test
+    public void kappaleKokeeVainVahanPainovoimaaKaukana() {
+        kappaleet = new ArrayList<>();
+        kappale = new Kappale(7, 0, 0);
+        kappaleet.add(kappale);
+        kappaleet.add((new Kappale(50, 1000, 1000)));
+        lait.gravitaatio(kappale, kappaleet);
+        assertEquals(0, kappale.getNopeusY(), 0.001);
+        assertEquals(0, kappale.getNopeusX(), 0.001);
+    }
+
+    @Test
+    public void xDeltaLasketaanOikein() {
+        kappale2 = kappaleet.get(0);
+        assertEquals(4, lait.xPaikkaMuutoksenLaskija(kappale, kappale2), 0.001);
+    }
+
+    @Test
+    public void yDeltaLasketaanOikein() {
+        kappale2 = kappaleet.get(0);
+        assertEquals(2, lait.yPaikkaMuutoksenLaskija(kappale, kappale2), 0.001);
+    }
+
     @Test
     public void kulmaLasketaanOikein() {
         kappale2 = kappaleet.get(0);
@@ -61,14 +83,14 @@ public class LuonnonlaitTest {
         double deltapaikkaX = Math.abs(kappale2.getPaikkaX() - kappale.getPaikkaX());
         double deltapaikkaY = Math.abs(kappale2.getPaikkaY() - kappale.getPaikkaY());
         double etaisyys = lait.etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
-        assertEquals(1.6686, lait.voimanLaskija(kappale, kappale2, etaisyys), 0.001);
+        assertEquals(1.6685, lait.voimanLaskija(kappale, kappale2, etaisyys), 0.001);
     }
 
     @Test
     public void voimanYKomponenttiLasketaanOikein() {
         kappale2 = kappaleet.get(0);
-        double deltapaikkaX = Math.abs(kappale2.getPaikkaX() - kappale.getPaikkaX());
-        double deltapaikkaY = Math.abs(kappale2.getPaikkaY() - kappale.getPaikkaY());
+        double deltapaikkaX = lait.xPaikkaMuutoksenLaskija(kappale2, kappale);
+        double deltapaikkaY = lait.yPaikkaMuutoksenLaskija(kappale2, kappale);
         double etaisyys = lait.etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
         double kulma = lait.kulmanLaskija(deltapaikkaX, deltapaikkaY);
         double voima = lait.voimanLaskija(kappale, kappale2, etaisyys);
@@ -89,9 +111,14 @@ public class LuonnonlaitTest {
     @Test
     public void kappaleetLiikkuvatOikein() {
         lait.kappaleetLiikkuu(kappaleet);
-        kappale2 = kappaleet.get(1);
-        assertEquals(kappale2.getPaikkaX() + kappale2.getNopeusX() * 2.5, kappale2.getPaikkaX(), 0.00);
-        assertEquals(kappale2.getPaikkaY() + kappale2.getNopeusY() * 2.5, kappale2.getPaikkaY(), 0.00);
+        kappale2 = kappaleet.get(0);
+        assertEquals(kappale2.getPaikkaX() + kappale2.getNopeusX(), kappale2.getPaikkaX(), 0.00);
+        assertEquals(kappale2.getPaikkaY() + kappale2.getNopeusY(), kappale2.getPaikkaY(), 0.00);
+    }
+
+    @Test
+    public void kulmanLaskijaPalauttaaNollanKunOsoittajaNolla() {
+        assertEquals(0, lait.kulmanLaskija(0, 5), 0.0);
     }
 
     @Test
@@ -99,4 +126,17 @@ public class LuonnonlaitTest {
         Kappale massaton = new Kappale(-2, 4, -3);
         assertFalse(lait.onkoMassaa(massaton));
     }
+
+    @Test
+    public void onkoMassaaToimiiNollassa() {
+        Kappale massaton = new Kappale(0, 4, -3);
+        assertFalse(lait.onkoMassaa(massaton));
+    }
+
+    @Test
+    public void onkoMassaaToimiiHyvin() {
+        Kappale massaton = new Kappale(20, 4, -3);
+        assertTrue(lait.onkoMassaa(massaton));
+    }
+
 }

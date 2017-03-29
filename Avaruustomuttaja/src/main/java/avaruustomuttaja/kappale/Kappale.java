@@ -27,8 +27,8 @@ public class Kappale {
         return massa;
     }
 
-    public void setMassa(double massa) {
-        this.massa = massa;
+    public void muutaMassa(double deltamassa) {
+        this.massa += deltamassa;
     }
 
     public double getPaikkaX() {

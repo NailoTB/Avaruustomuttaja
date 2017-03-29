@@ -7,26 +7,32 @@ import java.util.Random;
 
 public class KappaleTest {
 
-    Kappale uusikappale;
+    Kappale kappale;
     Random randomoija;
 
     @Before
     public void setUp() {
-        uusikappale = new Kappale(3.33, 2, 1, 2.8, 3.1);
+        kappale = new Kappale(3.33, 2, 1, 2.8, 3.1);
         randomoija = new Random();
     }
 
     @Test
     public void kappaleLuodaanOikein() {
-        assertEquals(3.33, uusikappale.getMassa(), 0.0);
-        assertEquals(2, uusikappale.getPaikkaX(), 0.0);
-        assertEquals(1, uusikappale.getPaikkaY(), 0.0);
+        assertEquals(3.33, kappale.getMassa(), 0.0);
+        assertEquals(2, kappale.getPaikkaX(), 0.0);
+        assertEquals(1, kappale.getPaikkaY(), 0.0);
     }
 
     @Test
     public void vektoriLuodaanOikein() {
-        assertEquals(2.8, uusikappale.getNopeusX(), 0.0);
-        assertEquals(3.1, uusikappale.getNopeusY(), 0.0);
+        assertEquals(2.8, kappale.getNopeusX(), 0.0);
+        assertEquals(3.1, kappale.getNopeusY(), 0.0);
+    }
+    
+    @Test
+    public void massaMuuttuuOikein() {
+        kappale.muutaMassa(20);
+        assertEquals(3.33 + 20, kappale.getMassa(), 0.0001);
     }
 
     @Test
@@ -48,27 +54,39 @@ public class KappaleTest {
 
     @Test
     public void paikkaMuuttuuOikein() {
-        uusikappale.muutaPaikka();
-        assertEquals(2 + 2.8, uusikappale.getPaikkaX(), 0.0);
-        assertEquals(1 + 3.1, uusikappale.getPaikkaY(), 0.0);
+        kappale.muutaPaikka();
+        assertEquals(2 + 2.8, kappale.getPaikkaX(), 0.0);
+        assertEquals(1 + 3.1, kappale.getPaikkaY(), 0.0);
     }
 
     @Test
     public void nopeusMuuttuuOikein() {
         double muutosX = randomoija.nextInt();
         double muutosY = randomoija.nextInt();
-        uusikappale.muutaNopeus(muutosX, muutosY);
-        assertEquals(2.8 + muutosX, uusikappale.getNopeusX(), 0.0);
-        assertEquals(3.1 + muutosY, uusikappale.getNopeusY(), 0.0);
+        kappale.muutaNopeus(muutosX, muutosY);
+        assertEquals(2.8 + muutosX, kappale.getNopeusX(), 0.0);
+        assertEquals(3.1 + muutosY, kappale.getNopeusY(), 0.0);
     }
 
     @Test
     public void nopeusMuuttuuOikeinNegatiivisella() {
         double muutosX = randomoija.nextInt() * -1;
         double muutosY = randomoija.nextInt();
-        uusikappale.muutaNopeus(muutosX, muutosY);
-        assertEquals(2.8 + muutosX, uusikappale.getNopeusX(), 0.0);
-        assertEquals(3.1 + muutosY, uusikappale.getNopeusY(), 0.0);
+        kappale.muutaNopeus(muutosX, muutosY);
+        assertEquals(2.8 + muutosX, kappale.getNopeusX(), 0.0);
+        assertEquals(3.1 + muutosY, kappale.getNopeusY(), 0.0);
+    }
+
+    @Test
+    public void leveysLasketaanOikein() {
+        Kappale uusikappale = new Kappale(30, 0, 0);
+        assertEquals(3, uusikappale.laskeLeveys(), 0.001);
+    }
+
+    @Test
+    public void leveysLasketaanOikeinHyvin() {
+        Kappale uusikappale = new Kappale(3, 0, 0);
+        assertEquals(0, uusikappale.laskeLeveys(), 0.001);
     }
 
 }

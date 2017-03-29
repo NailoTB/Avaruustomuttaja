@@ -15,21 +15,21 @@ public class Luonnonlait {
         double deltaNopeusY = 0;
 
         for (Kappale vetaja : kappaleet) {
-            if (vetaja.getPaikkaX() == kappale.getPaikkaX() && vetaja.getPaikkaY() == kappale.getPaikkaY()) {
+            if (vetaja == kappale) {
                 continue;
             }
 
             int suuntaX = 1;
             int suuntaY = 1;
-            double deltapaikkaX = Math.abs(vetaja.getPaikkaX() - kappale.getPaikkaX());
-            double deltapaikkaY = Math.abs(vetaja.getPaikkaY() - kappale.getPaikkaY());
+            double deltapaikkaX = xPaikkaMuutoksenLaskija(vetaja, kappale);
+            double deltapaikkaY = yPaikkaMuutoksenLaskija(vetaja, kappale);
             double etaisyys = etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
             double kulma = kulmanLaskija(deltapaikkaX, deltapaikkaY);
             double voima = voimanLaskija(kappale, vetaja, etaisyys);
+            
             if (vetaja.getPaikkaX() < kappale.getPaikkaX()) {
                 suuntaX = -1;
             }
-
             if (vetaja.getPaikkaY() < kappale.getPaikkaY()) {
                 suuntaY = -1;
             }
@@ -40,6 +40,16 @@ public class Luonnonlait {
         }
 
         kappale.muutaNopeus(deltaNopeusX, deltaNopeusY);
+    }
+
+    public double xPaikkaMuutoksenLaskija(Kappale vetaja, Kappale kappale) {
+        double deltapaikkaX = Math.abs(vetaja.getPaikkaX() - kappale.getPaikkaX());
+        return deltapaikkaX;
+    }
+
+    public double yPaikkaMuutoksenLaskija(Kappale vetaja, Kappale kappale) {
+        double deltapaikkaY = Math.abs(vetaja.getPaikkaY() - kappale.getPaikkaY());
+        return deltapaikkaY;
     }
 
     public double kulmanLaskija(double deltaPaikkaX, double deltaPaikkaY) {
