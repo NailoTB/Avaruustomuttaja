@@ -13,67 +13,91 @@
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   
 <a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../avaruustomuttaja/logiikka/Luonnonlait.html">Luonnonlait</a> {
 <a class="jxr_linenumber" name="L7" href="#L7">7</a>   
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>       <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong> g = 6; <em class="jxr_comment">//6.674*10^-11</em>
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>       <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong> t;
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>      <strong class="jxr_keyword">public</strong> <a href="../../avaruustomuttaja/logiikka/Luonnonlait.html">Luonnonlait</a>() {
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>          t = 1;
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>      }
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>      <strong class="jxr_keyword">public</strong> <a href="../../avaruustomuttaja/logiikka/Luonnonlait.html">Luonnonlait</a>(<strong class="jxr_keyword">double</strong> aikaAskel) {
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>          t = aikaAskel;
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>          <strong class="jxr_keyword">if</strong> (t &lt;= 0) {
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>              t = 1;
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>          }
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>      }
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>       <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong> g = 6.674;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>      <strong class="jxr_keyword">public</strong> <a href="../../avaruustomuttaja/logiikka/Luonnonlait.html">Luonnonlait</a>() {
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>      }
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> gravitaatio(<a href="../../avaruustomuttaja/kappale/Kappale.html">Kappale</a> kappale, ArrayList&lt;Kappale&gt; kappaleet) {
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>          <strong class="jxr_keyword">double</strong> deltaNopeusX = 0;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>          <strong class="jxr_keyword">double</strong> deltaNopeusY = 0;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>          <strong class="jxr_keyword">for</strong> (Kappale vetaja : kappaleet) {
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>              <strong class="jxr_keyword">if</strong> (vetaja == kappale) {
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>                  <strong class="jxr_keyword">continue</strong>;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>              }
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> getAika() {
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>          <strong class="jxr_keyword">return</strong> t;
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>      }
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> gravitaatio(<a href="../../avaruustomuttaja/kappale/Kappale.html">Kappale</a> kappale, ArrayList&lt;Kappale&gt; kappaleet) {
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>          <strong class="jxr_keyword">double</strong> deltaNopeusX = 0;
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>          <strong class="jxr_keyword">double</strong> deltaNopeusY = 0;
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>          <strong class="jxr_keyword">for</strong> (Kappale vetaja : kappaleet) {
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>              <strong class="jxr_keyword">int</strong> suuntaX = 1;
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>              <strong class="jxr_keyword">int</strong> suuntaY = 1;
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>              <strong class="jxr_keyword">if</strong> (vetaja.getPaikkaX() == kappale.getPaikkaX() &amp;&amp; vetaja.getPaikkaY() == kappale.getPaikkaY()) {
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>                  <strong class="jxr_keyword">continue</strong>;
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>              }
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>              <strong class="jxr_keyword">if</strong> (vetaja.getPaikkaX() &lt; kappale.getPaikkaX()) {
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>                  suuntaX = -1;
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>              }
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>              <strong class="jxr_keyword">int</strong> suuntaX = 1;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>              <strong class="jxr_keyword">int</strong> suuntaY = 1;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>              <strong class="jxr_keyword">double</strong> deltapaikkaX = xPaikkaMuutoksenLaskija(vetaja, kappale);
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>              <strong class="jxr_keyword">double</strong> deltapaikkaY = yPaikkaMuutoksenLaskija(vetaja, kappale);
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>              <strong class="jxr_keyword">double</strong> etaisyys = etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>              <strong class="jxr_keyword">double</strong> kulma = kulmanLaskija(deltapaikkaX, deltapaikkaY);
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>              <strong class="jxr_keyword">double</strong> voima = voimanLaskija(kappale, vetaja, etaisyys);
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>              
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>              <strong class="jxr_keyword">if</strong> (vetaja.getPaikkaX() &lt; kappale.getPaikkaX()) {
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>                  suuntaX = -1;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>              }
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>              <strong class="jxr_keyword">if</strong> (vetaja.getPaikkaY() &lt; kappale.getPaikkaY()) {
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>                  suuntaY = -1;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>              }
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>              deltaNopeusX += suuntaX * voimanXKomponentinLaskija(voima, kulma);
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>              deltaNopeusY += suuntaY * voimanYKomponentinLaskija(voima, kulma);
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          }
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>  
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>              <strong class="jxr_keyword">if</strong> (vetaja.getPaikkaY() &lt; kappale.getPaikkaY()) {
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>                  suuntaY = -1;
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>              }
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>              
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>              <strong class="jxr_keyword">if</strong> (!(vetaja.getPaikkaX() == kappale.getPaikkaX())) {
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>                  deltaNopeusX += suuntaX * t * g * vetaja.getMassa() / Math.pow((vetaja.getPaikkaX() - kappale.getPaikkaX()), 2);
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>              }
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>              
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>              <strong class="jxr_keyword">if</strong> (!(vetaja.getPaikkaY() == kappale.getPaikkaY())) {
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>                  deltaNopeusY += suuntaY * t * g * vetaja.getMassa() / Math.pow((vetaja.getPaikkaY() - kappale.getPaikkaY()), 2);
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>              }
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>          }
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>          kappale.muutaNopeus(deltaNopeusX, deltaNopeusY);
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>      }
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>  
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> onkoMassaa(<a href="../../avaruustomuttaja/kappale/Kappale.html">Kappale</a> kappale) {
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>          <strong class="jxr_keyword">return</strong> kappale.getMassa() &gt; 0;
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          kappale.muutaNopeus(deltaNopeusX, deltaNopeusY);
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      }
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> xPaikkaMuutoksenLaskija(<a href="../../avaruustomuttaja/kappale/Kappale.html">Kappale</a> vetaja, <a href="../../avaruustomuttaja/kappale/Kappale.html">Kappale</a> kappale) {
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>          <strong class="jxr_keyword">double</strong> deltapaikkaX = Math.abs(vetaja.getPaikkaX() - kappale.getPaikkaX());
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          <strong class="jxr_keyword">return</strong> deltapaikkaX;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      }
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> yPaikkaMuutoksenLaskija(<a href="../../avaruustomuttaja/kappale/Kappale.html">Kappale</a> vetaja, <a href="../../avaruustomuttaja/kappale/Kappale.html">Kappale</a> kappale) {
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <strong class="jxr_keyword">double</strong> deltapaikkaY = Math.abs(vetaja.getPaikkaY() - kappale.getPaikkaY());
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          <strong class="jxr_keyword">return</strong> deltapaikkaY;
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      }
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> kulmanLaskija(<strong class="jxr_keyword">double</strong> deltaPaikkaX, <strong class="jxr_keyword">double</strong> deltaPaikkaY) {
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          <strong class="jxr_keyword">if</strong> (deltaPaikkaY == 0) {
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>              <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>          }
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          <strong class="jxr_keyword">double</strong> kulma = Math.atan(deltaPaikkaX / deltaPaikkaY);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          <strong class="jxr_keyword">return</strong> kulma;
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>      }
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> kappaleetLiikkuu(ArrayList&lt;Kappale&gt; kappaleet) {
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>          <strong class="jxr_keyword">for</strong> (Kappale kappale : kappaleet) {
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>              kappale.muutaPaikka(t);
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>          }
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>      }
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>  }
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> voimanLaskija(<a href="../../avaruustomuttaja/kappale/Kappale.html">Kappale</a> kappale, <a href="../../avaruustomuttaja/kappale/Kappale.html">Kappale</a> vetaja, <strong class="jxr_keyword">double</strong> etaisyys) {
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          <strong class="jxr_keyword">double</strong> voima = g * vetaja.getMassa() / Math.pow(etaisyys, 2);
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          <strong class="jxr_keyword">return</strong> voima;
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      }
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> etaisyydenLaskija(<strong class="jxr_keyword">double</strong> deltaPaikkaX, <strong class="jxr_keyword">double</strong> deltaPaikkaY) {
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          <strong class="jxr_keyword">double</strong> etaisyys = Math.sqrt(Math.pow(deltaPaikkaX, 2) + Math.pow(deltaPaikkaY, 2));
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          <strong class="jxr_keyword">return</strong> etaisyys;
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>      }
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> voimanXKomponentinLaskija(<strong class="jxr_keyword">double</strong> voima, <strong class="jxr_keyword">double</strong> kulma) {
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          <strong class="jxr_keyword">double</strong> voimaX = Math.sqrt(Math.pow(voima, 2) - Math.pow(voima * Math.cos(kulma), 2));
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <strong class="jxr_keyword">return</strong> voimaX;
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>      }
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> voimanYKomponentinLaskija(<strong class="jxr_keyword">double</strong> voima, <strong class="jxr_keyword">double</strong> kulma) {
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          <strong class="jxr_keyword">double</strong> voimaY = Math.sqrt(Math.pow(voima, 2) - Math.pow(voima * Math.sin(kulma), 2));
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          <strong class="jxr_keyword">return</strong> voimaY;
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>      }
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> onkoMassaa(<a href="../../avaruustomuttaja/kappale/Kappale.html">Kappale</a> kappale) {
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          <strong class="jxr_keyword">return</strong> kappale.getMassa() &gt; 0;
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>      }
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> kappaleetLiikkuu(ArrayList&lt;Kappale&gt; kappaleet) {
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          <strong class="jxr_keyword">for</strong> (Kappale kappale : kappaleet) {
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>              kappale.muutaPaikka();
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          }
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>      }
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>

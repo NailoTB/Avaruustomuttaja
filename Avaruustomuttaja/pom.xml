@@ -46,6 +46,16 @@
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.1.8</version>
+                <configuration>
+                    <targetClasses>
+                        <param>avaruustomuttaja.logiikka.*</param>
+                        <param>avaruustomuttaja.kappale.*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>avaruustomuttaja.logiikka.*</param>
+                        <param>avaruustomuttaja.kappale.*</param>
+                    </targetTests>
+                </configuration>
             </plugin>
         </plugins>
     </build>  
