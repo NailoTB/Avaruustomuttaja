@@ -26,7 +26,7 @@ public class Luonnonlait {
             double etaisyys = etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
             double kulma = kulmanLaskija(deltapaikkaX, deltapaikkaY);
             double voima = voimanLaskija(kappale, vetaja, etaisyys);
-            
+
             if (vetaja.getPaikkaX() < kappale.getPaikkaX()) {
                 suuntaX = -1;
             }
@@ -40,6 +40,46 @@ public class Luonnonlait {
         }
 
         kappale.muutaNopeus(deltaNopeusX, deltaNopeusY);
+    }
+
+    public void tormays(Kappale kappale, ArrayList<Kappale> kappaleet) {
+        for (Kappale tormaaja : kappaleet) {
+            if (tormaaja == kappale) {
+                continue;
+            }
+
+            double deltapaikkaX = xPaikkaMuutoksenLaskija(tormaaja, kappale);
+            double deltapaikkaY = yPaikkaMuutoksenLaskija(tormaaja, kappale);
+
+            if (etaisyydenLaskija(deltapaikkaX, deltapaikkaY) < tormaaja.laskeLeveys()) {
+                if (tormaaja.getMassa() >= kappale.getMassa()) {
+                    liikemaaranSailyminen(tormaaja, kappale);
+                } else {
+                    liikemaaranSailyminen(kappale, tormaaja);
+                }
+            }
+        }
+    }
+
+    public void liikemaaranSailyminen(Kappale isompi, Kappale pienempi) {
+        double NopeusX = 0;
+        double NopeusY = 0;
+
+        NopeusX = (isompi.getMassa() * isompi.getNopeusX()
+                + pienempi.getMassa() * pienempi.getNopeusX())
+                / (isompi.getMassa() + pienempi.getMassa());
+
+        NopeusY = (isompi.getMassa() * isompi.getNopeusY()
+                + pienempi.getMassa() * pienempi.getNopeusY())
+                / (isompi.getMassa() + pienempi.getMassa());
+
+        kappaleidenYhdistyminen(isompi, pienempi);
+        isompi.setNopeus(NopeusX, NopeusY);
+    }
+
+    public void kappaleidenYhdistyminen(Kappale isompi, Kappale pienempi) {
+        isompi.muutaMassa(pienempi.getMassa());
+        pienempi.muutaMassa(-pienempi.getMassa());
     }
 
     public double xPaikkaMuutoksenLaskija(Kappale vetaja, Kappale kappale) {

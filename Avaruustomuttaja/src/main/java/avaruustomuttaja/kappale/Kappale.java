@@ -47,8 +47,12 @@ public class Kappale {
         return this.nopeus.getY();
     }
 
-    public int laskeLeveys() {
-        int leveys = (int) this.massa / 10;
+    public void setNopeus(double x, double y) {
+        this.nopeus.setVektori(x, y);
+    }
+
+    public double laskeLeveys() {
+        double leveys = this.massa / 10;
         return leveys;
     }
 
@@ -64,7 +68,7 @@ public class Kappale {
     public void piirra(Graphics graphics) {
         int x = (int) this.paikkax;
         int y = (int) this.paikkay;
-        int leveys = laskeLeveys();
+        int leveys = (int) laskeLeveys();
         graphics.fillOval(x, y, leveys, leveys);
     }
 

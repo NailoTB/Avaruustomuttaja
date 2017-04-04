@@ -22,4 +22,12 @@ public class Vektori {
     public double getY() {
         return y;
     }   
+
+    public void setVektori(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    
+    
 }
