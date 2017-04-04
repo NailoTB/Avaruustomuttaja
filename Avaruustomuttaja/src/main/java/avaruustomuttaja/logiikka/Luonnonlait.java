@@ -94,7 +94,7 @@ public class Luonnonlait {
 
     public double kulmanLaskija(double deltaPaikkaX, double deltaPaikkaY) {
         if (deltaPaikkaY == 0) {
-            return 0;
+            return Math.PI / 2;
         }
         double kulma = Math.atan(deltaPaikkaX / deltaPaikkaY);
         return kulma;
