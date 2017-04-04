@@ -86,7 +86,7 @@ public class KappaleTest {
     @Test
     public void leveysLasketaanOikeinHyvin() {
         Kappale uusikappale = new Kappale(3, 0, 0);
-        assertEquals(0, uusikappale.laskeLeveys(), 0.001);
+        assertEquals(0.3, uusikappale.laskeLeveys(), 0.001);
     }
 
 }
