@@ -23,11 +23,6 @@ public class KappaleTest {
         assertEquals(1, kappale.getPaikkaY(), 0.0);
     }
 
-    @Test
-    public void vektoriLuodaanOikein() {
-        assertEquals(2.8, kappale.getNopeusX(), 0.0);
-        assertEquals(3.1, kappale.getNopeusY(), 0.0);
-    }
     
     @Test
     public void massaMuuttuuOikein() {
@@ -43,13 +38,6 @@ public class KappaleTest {
         assertEquals(-0.5, negatiivinenkappale.getNopeusY(), 0.0);
         assertEquals(-4.6, negatiivinenkappale.getNopeusX(), 0.0);
 
-    }
-
-    @Test
-    public void nollaVektoriLuodaanOikein() {
-        Kappale uusikappale2 = new Kappale(2.3, 2, 5);
-        assertEquals(0, uusikappale2.getNopeusX(), 0.0);
-        assertEquals(0, uusikappale2.getNopeusY(), 0.0);
     }
 
     @Test

@@ -139,4 +139,22 @@ public class LuonnonlaitTest {
         assertTrue(lait.onkoMassaa(massaton));
     }
 
+    @Test
+    public void liikemaaraSailyyTormayksessa() {
+        double vanhaNopeus = kappale.getNopeusX();
+        double vanhaMassa1 = kappale.getMassa();
+        double vanhaMassa2 = kappaleet.get(0).getMassa();
+        lait.liikemaaranSailyminen(kappale, kappaleet.get(0));
+        assertEquals(vanhaMassa1 * vanhaNopeus / (vanhaMassa1 + vanhaMassa2), kappale.getNopeusX(), 0.01);
+    }
+
+    @Test
+    public void kappaleetYhdistyvatOikein() {
+        double vanhaMassa1 = kappale.getMassa();
+        double vanhaMassa2 = kappaleet.get(0).getMassa();
+        lait.kappaleidenYhdistyminen(kappale, kappaleet.get(0));
+        assertEquals(vanhaMassa1 + vanhaMassa2, kappale.getMassa(), 0.01);
+        assertEquals(0, kappaleet.get(0).getMassa(), 0);
+    }
+
 }
