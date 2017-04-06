@@ -14,5 +14,7 @@ Päivä | Tunnit | Kuvaus
 29.03.2017 | 2.0h | Testien vääntöä
 04.04.2017 | 1.5h | Liikemäärän säilymisen luominen
 05.04.2017 | 0.5h | Liikemäärän testien luominen
-06.04.2017 | 1.0h | Javadocin kirjoittamista ja refactorointia
+06.04.2017 | 1.0h | Javadocin kirjoittamista ja refaktorointia
+06.04.2017 | 1.0h | Käyttöliittymän miettimistä
+
 
