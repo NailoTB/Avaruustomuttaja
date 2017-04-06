@@ -207,7 +207,7 @@ public class Luonnonlait {
         return kappale.getMassa() > 0;
     }
 
-    public void kappaleetLiikkuu(ArrayList<Kappale> kappaleet) {
+    public void kappaleetLiikkuuAskeleen(ArrayList<Kappale> kappaleet) {
 
         for (Kappale kappale : kappaleet) {
             tormays(kappale, kappaleet);

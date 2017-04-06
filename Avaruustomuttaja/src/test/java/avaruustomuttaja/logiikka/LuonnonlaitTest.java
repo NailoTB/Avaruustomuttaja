@@ -109,9 +109,11 @@ public class LuonnonlaitTest {
     }
 
     @Test
-    public void kappaleetLiikkuvatOikein() {
-        lait.kappaleetLiikkuu(kappaleet);
+    public void kappaleLiikkuuAskeleenOikein() { //parempi testi työn alla
         kappale2 = kappaleet.get(0);
+        ArrayList<Kappale> uusKappale = new ArrayList<>();
+        uusKappale.add(kappale2);
+        lait.kappaleetLiikkuuAskeleen(uusKappale);
         assertEquals(kappale2.getPaikkaX() + kappale2.getNopeusX(), kappale2.getPaikkaX(), 0.00);
         assertEquals(kappale2.getPaikkaY() + kappale2.getNopeusY(), kappale2.getPaikkaY(), 0.00);
     }

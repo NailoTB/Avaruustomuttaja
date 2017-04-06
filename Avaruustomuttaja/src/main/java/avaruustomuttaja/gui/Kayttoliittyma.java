@@ -64,7 +64,7 @@ public class Kayttoliittyma implements Runnable {
 
     public void piirraUusiks() throws InterruptedException {
         while (true) {
-            this.lait.kappaleetLiikkuu(kappaleet);
+            this.lait.kappaleetLiikkuuAskeleen(kappaleet);
 
             piirtoalusta.repaint();
             TimeUnit.MILLISECONDS.sleep(50);
