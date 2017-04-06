@@ -82,19 +82,19 @@ public class Luonnonlait {
  * @param  pienempi Pienempi kappale.
  */
     public void liikemaaranSailyminen(Kappale isompi, Kappale pienempi) {
-        double NopeusX = 0;
-        double NopeusY = 0;
+        double nopeusX= 0;
+        double nopeusY = 0;
 
-        NopeusX = (isompi.getMassa() * isompi.getNopeusX()
+        nopeusX = (isompi.getMassa() * isompi.getNopeusX()
                 + pienempi.getMassa() * pienempi.getNopeusX())
                 / (isompi.getMassa() + pienempi.getMassa());
 
-        NopeusY = (isompi.getMassa() * isompi.getNopeusY()
+        nopeusY = (isompi.getMassa() * isompi.getNopeusY()
                 + pienempi.getMassa() * pienempi.getNopeusY())
                 / (isompi.getMassa() + pienempi.getMassa());
 
         kappaleidenYhdistyminen(isompi, pienempi);
-        isompi.setNopeus(NopeusX, NopeusY);
+        isompi.setNopeus(nopeusX, nopeusY);
     }
 /**
  * Metodi yhdistää pienemmän kappaleen isompaan.
