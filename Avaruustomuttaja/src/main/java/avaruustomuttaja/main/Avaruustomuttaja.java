@@ -20,8 +20,9 @@ public class Avaruustomuttaja {
     public static void main(String[] args) throws InterruptedException {
 
         ArrayList<Kappale> kappaleet = new ArrayList<>();
-        kappaleet.add((new Kappale(1000, 500, 500)));
-        kappaleet.add((new Kappale(1000, 500, 1000)));
+        kappaleet.add((new Kappale(100, 300, 300)));
+        kappaleet.add((new Kappale(50, 200, 100, 1, 0)));
+        kappaleet.add((new Kappale(20, 400, 200, -1, 0)));
 
         Luonnonlait lait = new Luonnonlait();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(kappaleet, lait);
