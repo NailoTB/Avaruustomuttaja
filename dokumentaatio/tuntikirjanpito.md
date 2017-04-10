@@ -16,5 +16,6 @@ Päivä | Tunnit | Kuvaus
 05.04.2017 | 0.5h | Liikemäärän testien luominen
 06.04.2017 | 1.0h | Javadocin kirjoittamista ja refaktorointia
 06.04.2017 | 1.0h | Käyttöliittymän miettimistä
+10.04.2017 | 1.0h | Pausenappi ja refaktorointia
 
 
