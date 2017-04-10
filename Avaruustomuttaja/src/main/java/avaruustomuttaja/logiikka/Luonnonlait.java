@@ -67,7 +67,7 @@ public class Luonnonlait {
             double deltapaikkaX = xPaikkaMuutoksenLaskija(tormaaja, kappale);
             double deltapaikkaY = yPaikkaMuutoksenLaskija(tormaaja, kappale);
 
-            if (etaisyydenLaskija(deltapaikkaX, deltapaikkaY) < tormaaja.laskeLeveys()) {
+            if (etaisyydenLaskija(deltapaikkaX, deltapaikkaY) < tormaaja.laskeLeveys() -1) {
                 if (tormaaja.getMassa() >= kappale.getMassa()) {
                     liikemaaranSailyminen(tormaaja, kappale);
                 } else {

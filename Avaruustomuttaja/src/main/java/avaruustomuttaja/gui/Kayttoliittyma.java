@@ -7,7 +7,6 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,14 +20,15 @@ public class Kayttoliittyma implements Runnable {
     private ArrayList<Kappale> kappaleet;
     Piirtoalusta piirtoalusta;
     Luonnonlait lait;
-
-    public Kayttoliittyma() {
-    }
+    boolean paalla;
+    Simuloija simuloija;
 
     public Kayttoliittyma(ArrayList<Kappale> kappaleet, Luonnonlait lait) {
         this.kappaleet = kappaleet;
         piirtoalusta = new Piirtoalusta(this.kappaleet);
         this.lait = lait;
+        this.paalla = true;
+        this.simuloija = new Simuloija(lait, piirtoalusta, kappaleet);
     }
 
     @Override
@@ -50,27 +50,26 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private JPanel luoValikko() {
-        JPanel panel = new JPanel(new GridLayout(2, 1));
-        
-        JSlider massaSlider = new JSlider(JSlider.HORIZONTAL, 0, 1000, 10);
+        JPanel panel = new JPanel(new GridLayout(3, 1));
+        JButton pausenappi = new JButton("Pause / Play");
+
+        PausePlay paallePois = new PausePlay(this.simuloija);
+        pausenappi.addActionListener(paallePois);
+
+        JSlider massaSlider = new JSlider(JSlider.HORIZONTAL, 0, 1000, 500);
         massaSlider.setMajorTickSpacing(200);
         massaSlider.setPaintTicks(true);
         massaSlider.setPaintLabels(true);
-        
+        panel.add(pausenappi);
         panel.add(new JLabel("Massa: "));
         panel.add(massaSlider);
         return panel;
     }
 
-    public void piirraUusiks() throws InterruptedException {
-        while (true) {
-            this.lait.kappaleetLiikkuuAskeleen(kappaleet);
-
-            piirtoalusta.repaint();
-            TimeUnit.MILLISECONDS.sleep(50);
-        }
+    public void simuloi() throws InterruptedException {
+        this.simuloija.piirraUusiks();
     }
-
+    
     public JFrame getFrame() {
         return frame;
     }

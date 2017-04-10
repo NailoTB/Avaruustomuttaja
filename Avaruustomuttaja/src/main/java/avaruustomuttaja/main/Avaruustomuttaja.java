@@ -27,6 +27,6 @@ public class Avaruustomuttaja {
         Luonnonlait lait = new Luonnonlait();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(kappaleet, lait);
         SwingUtilities.invokeLater(kayttoliittyma);
-        kayttoliittyma.piirraUusiks();
+        kayttoliittyma.simuloi();
     }
 }
