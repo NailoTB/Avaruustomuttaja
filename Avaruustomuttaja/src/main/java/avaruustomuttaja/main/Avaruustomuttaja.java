@@ -11,12 +11,13 @@ import avaruustomuttaja.logiikka.Luonnonlait;
 import java.util.ArrayList;
 import javax.swing.SwingUtilities;
 
-/**
- *
- * @author Wagahai
- */
-public class Avaruustomuttaja {
 
+public class Avaruustomuttaja {
+    /**
+     * Main metodi.
+     * @param args Magiaa.
+     * @throws InterruptedException Errori.
+     */
     public static void main(String[] args) throws InterruptedException {
 
         ArrayList<Kappale> kappaleet = new ArrayList<>();

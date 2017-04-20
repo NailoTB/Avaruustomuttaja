@@ -10,10 +10,7 @@ import avaruustomuttaja.logiikka.Luonnonlait;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-/**
- *
- * @author Wagahai
- */
+
 public class Simuloija {
 
     boolean paalla;
@@ -21,13 +18,25 @@ public class Simuloija {
     Piirtoalusta piirtoalusta;
     ArrayList<Kappale> kappaleet;
     
+    
+     /**
+     * Simuloijan konstruktori.
+     *
+     * @param lait Lait, joiden mukaan toimitaan.
+     * @param alusta Piirtoalusta, johon piirretään.
+     * @param kappaleet Kaikki kappaleet, joita liikutetaan.
+     */
     public Simuloija(Luonnonlait lait, Piirtoalusta alusta, ArrayList<Kappale> kappaleet) {
         this.paalla = true;
         this.lait = lait;
         this.piirtoalusta = alusta;
         this.kappaleet = kappaleet;
     }
-
+     /**
+     * Metodi liikuttaa kappaleita askeleen, ja piirtää alustan uudestaan.
+     *
+     * @throws InterruptedException errori
+     */
     public void piirraUusiks() throws InterruptedException {
         while (true) {
             if (this.paalla) {
@@ -37,11 +46,18 @@ public class Simuloija {
             TimeUnit.MILLISECONDS.sleep(50);
         }
     }
-
+     /**
+     * Metodi lisää kappaleen listaan.
+     *
+     * @param kappale Lisättävä kappale.
+     */
     public void lisaaKappale(Kappale kappale) {
         this.kappaleet.add(kappale);
     }
-    
+     /**
+     * Metodi pysäyttää simuloinnin.
+     *
+     */
     public void paallaPois() {
         this.paalla = !this.paalla;
     }

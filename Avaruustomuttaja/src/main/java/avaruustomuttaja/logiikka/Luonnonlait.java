@@ -7,7 +7,10 @@ public class Luonnonlait {
 
     private double g = 6.674;
     private Laskuapuri laske;
-
+    
+    /**
+     * Luonnonlait luokan konstruktori.
+     */
     public Luonnonlait() {
         laske = new Laskuapuri();
     }
@@ -112,11 +115,19 @@ public class Luonnonlait {
         isompi.muutaMassa(pienempi.getMassa());
         pienempi.muutaMassa(-pienempi.getMassa());
     }
-
+    
+    /**
+     * Metodi katsoo onko kappaleella massaa.
+     * @param kappale Kappale, jota tarkistetaan.
+     * @return boolean True/False onko kappaleella massaa.
+     */
     public boolean onkoMassaa(Kappale kappale) {
         return kappale.getMassa() > 0;
     }
-
+    /**
+     * Metodi liikuttaa kaikkia kappaleita askeleen verran.
+     * @param kappaleet Kaikki kappaleet.
+     */
     public void kappaleetLiikkuuAskeleen(ArrayList<Kappale> kappaleet) {
 
         for (Kappale kappale : kappaleet) {

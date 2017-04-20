@@ -9,7 +9,11 @@ import javax.swing.JPanel;
 public class Piirtoalusta extends JPanel {
 
     ArrayList<Kappale> kappaleet;
-
+    /**
+     * Piirtoalustan konstruktori.
+     *
+     * @param kappaleet kaikki kappaleet.
+     */
     public Piirtoalusta(ArrayList<Kappale> kappaleet) {
         super.setBackground(Color.WHITE);
         this.kappaleet = kappaleet;

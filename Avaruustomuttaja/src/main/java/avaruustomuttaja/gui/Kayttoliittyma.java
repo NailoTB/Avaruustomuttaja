@@ -22,7 +22,13 @@ public class Kayttoliittyma implements Runnable {
     Luonnonlait lait;
     boolean paalla;
     Simuloija simuloija;
-
+    
+    /**
+     * Kayttoliittyman konstruktori.
+     *
+     * @param lait kayttoliittymassa käytettävä Luonnonlait-luokka.
+     * @param kappaleet Lista kaikista kappaleista
+     */
     public Kayttoliittyma(ArrayList<Kappale> kappaleet, Luonnonlait lait) {
         this.kappaleet = kappaleet;
         piirtoalusta = new Piirtoalusta(this.kappaleet);
@@ -65,7 +71,10 @@ public class Kayttoliittyma implements Runnable {
         panel.add(massaSlider);
         return panel;
     }
-
+    /**
+     * Käskee simuloijaa simuloimaan ja piirtämään alustan uudestaan.
+     * @throws InterruptedException 
+     */
     public void simuloi() throws InterruptedException {
         this.simuloija.piirraUusiks();
     }

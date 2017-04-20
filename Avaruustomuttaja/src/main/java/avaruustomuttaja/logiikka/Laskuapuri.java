@@ -7,14 +7,14 @@ package avaruustomuttaja.logiikka;
 
 import avaruustomuttaja.kappale.Kappale;
 
-/**
- *
- * @author Wagahai
- */
 public class Laskuapuri {
 
     private double g = 6.674;
-
+    /** 
+     * Laskuapurin konstruktori.
+     * 
+     * Täällä ei tapahdu mitään
+     */
     public Laskuapuri() {
 
     }

@@ -8,14 +8,14 @@ package avaruustomuttaja.gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- *
- * @author Wagahai
- */
 public class PausePlay implements ActionListener {
 
     Simuloija simuloija;
-
+    /**
+     * PausePlay-napin konstruktori.
+     *
+     * @param simuloija luokka, jonka nappi pysäyttää.
+     */
     public PausePlay(Simuloija simuloija) {
         this.simuloija = simuloija;
     }
