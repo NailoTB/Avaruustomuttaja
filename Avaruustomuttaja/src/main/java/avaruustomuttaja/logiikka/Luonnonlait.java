@@ -6,8 +6,10 @@ import java.util.ArrayList;
 public class Luonnonlait {
 
     private double g = 6.674;
-
+    private Laskuapuri laske;
+    
     public Luonnonlait() {
+        laske = new Laskuapuri();
     }
 
     /**
@@ -30,11 +32,11 @@ public class Luonnonlait {
 
             int suuntaX = 1;
             int suuntaY = 1;
-            double deltapaikkaX = xPaikkaMuutoksenLaskija(vetaja, kappale);
-            double deltapaikkaY = yPaikkaMuutoksenLaskija(vetaja, kappale);
-            double etaisyys = etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
-            double kulma = kulmanLaskija(deltapaikkaX, deltapaikkaY);
-            double voima = voimanLaskija(kappale, vetaja, etaisyys);
+            double deltapaikkaX = laske.xPaikkaMuutoksenLaskija(vetaja, kappale);
+            double deltapaikkaY = laske.yPaikkaMuutoksenLaskija(vetaja, kappale);
+            double etaisyys = laske.etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
+            double kulma = laske.kulmanLaskija(deltapaikkaX, deltapaikkaY);
+            double voima = laske.voimanLaskija(kappale, vetaja, etaisyys);
 
             if (vetaja.getPaikkaX() < kappale.getPaikkaX()) {
                 suuntaX = -1;
@@ -43,8 +45,8 @@ public class Luonnonlait {
                 suuntaY = -1;
             }
 
-            deltaNopeusX += suuntaX * voimanXKomponentinLaskija(voima, kulma);
-            deltaNopeusY += suuntaY * voimanYKomponentinLaskija(voima, kulma);
+            deltaNopeusX += suuntaX * laske.voimanXKomponentinLaskija(voima, kulma);
+            deltaNopeusY += suuntaY * laske.voimanYKomponentinLaskija(voima, kulma);
 
         }
 
@@ -64,10 +66,10 @@ public class Luonnonlait {
                 continue;
             }
 
-            double deltapaikkaX = xPaikkaMuutoksenLaskija(tormaaja, kappale);
-            double deltapaikkaY = yPaikkaMuutoksenLaskija(tormaaja, kappale);
+            double deltapaikkaX = laske.xPaikkaMuutoksenLaskija(tormaaja, kappale);
+            double deltapaikkaY = laske.yPaikkaMuutoksenLaskija(tormaaja, kappale);
 
-            if (etaisyydenLaskija(deltapaikkaX, deltapaikkaY) < tormaaja.laskeLeveys() -1) {
+            if (laske.etaisyydenLaskija(deltapaikkaX, deltapaikkaY) < tormaaja.laskeLeveys() -1) {
                 if (tormaaja.getMassa() >= kappale.getMassa()) {
                     liikemaaranSailyminen(tormaaja, kappale);
                 } else {
@@ -109,98 +111,6 @@ public class Luonnonlait {
     public void kappaleidenYhdistyminen(Kappale isompi, Kappale pienempi) {
         isompi.muutaMassa(pienempi.getMassa());
         pienempi.muutaMassa(-pienempi.getMassa());
-    }
-
-    /**
-     * Metodi laskee kahden kappaleen välisen x-suuntaisen etäisyyden.
-     *
-     * @param vetaja Ensimmäinen kappale.
-     * @param kappale Toinen kappale.
-     * @return kappaleiden x-suuntainen etäisyys.
-     */
-    public double xPaikkaMuutoksenLaskija(Kappale vetaja, Kappale kappale) {
-        double deltapaikkaX = Math.abs(vetaja.getPaikkaX() - kappale.getPaikkaX());
-        return deltapaikkaX;
-    }
-
-    /**
-     * Metodi laskee kahden kappaleen välisen y-suuntaisen etäisyyden.
-     *
-     * @param vetaja Ensimmäinen kappale.
-     * @param kappale Toinen kappale.
-     * @return kappaleiden y-suuntainen etäisyys.
-     */
-    public double yPaikkaMuutoksenLaskija(Kappale vetaja, Kappale kappale) {
-        double deltapaikkaY = Math.abs(vetaja.getPaikkaY() - kappale.getPaikkaY());
-        return deltapaikkaY;
-    }
-
-    /**
-     * Metodi laskee kahden kappaleen välisen kulman trigonometrisesti.
-     *
-     * @param deltaPaikkaX Kappaleiden välinen x-suuntainen etäisyys.
-     * @param deltaPaikkaY Kappaleiden välinen y-suuntainen etäisyys.
-     * @return kappaleiden välinen kulma
-     */
-    public double kulmanLaskija(double deltaPaikkaX, double deltaPaikkaY) {
-        if (deltaPaikkaY == 0) {
-            return Math.PI / 2;
-        }
-        double kulma = Math.atan(deltaPaikkaX / deltaPaikkaY);
-        return kulma;
-    }
-
-    /**
-     * Metodi laskee kahden kappaleen välisen voiman Newtonin painovoimalaista.
-     *
-     * @param kappale Kappale, johon painovoima lasketaan.
-     * @param vetaja Kappale, joka "vetää" toista kappaletta.
-     * @param etaisyys Kappaleiden välinen etäisyys.
-     * @return vetajan aiheuttaman voiman suuruus kappaleeseen
-     */
-    public double voimanLaskija(Kappale kappale, Kappale vetaja, double etaisyys) {
-        double voima = g * vetaja.getMassa() / Math.pow(etaisyys, 2);
-        return voima;
-    }
-
-    /**
-     * Metodi laskee kahden kappaleen etäisyyden Pythagoraan lauseesta.
-     *
-     * @param deltaPaikkaX Kahden kappaleen x-suuntainen etäisyys.
-     * @param deltaPaikkaY Kahden kappaleen y-suuntainen etäisyys.
-     * @return kahden kappaleen etäisyys
-     */
-    public double etaisyydenLaskija(double deltaPaikkaX, double deltaPaikkaY) {
-        double etaisyys = Math.sqrt(Math.pow(deltaPaikkaX, 2) + Math.pow(deltaPaikkaY, 2));
-        return etaisyys;
-    }
-
-    /**
-     * Metodi laskee voiman X-komponentin.
-     * <p>
-     * Metodi laskee X-komponentin suuruuden trigonometrisesti
-     *
-     * @param voima Kokonaisvoiman suuruus
-     * @param kulma Kahden kappaleen välinen kulma
-     * @return voiman X-komponentin suuruus
-     */
-    public double voimanXKomponentinLaskija(double voima, double kulma) {
-        double voimaX = Math.sqrt(Math.pow(voima, 2) - Math.pow(voima * Math.cos(kulma), 2));
-        return voimaX;
-    }
-
-    /**
-     * Metodi laskee voiman Y-komponentin.
-     * <p>
-     * Metodi laskee Y-komponentin suuruuden trigonometrisesti
-     *
-     * @param voima Kokonaisvoiman suuruus
-     * @param kulma Kahden kappaleen välinen kulma
-     * @return voiman Y-komponentin suuruus
-     */
-    public double voimanYKomponentinLaskija(double voima, double kulma) {
-        double voimaY = Math.sqrt(Math.pow(voima, 2) - Math.pow(voima * Math.sin(kulma), 2));
-        return voimaY;
     }
 
     public boolean onkoMassaa(Kappale kappale) {

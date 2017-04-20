@@ -49,64 +49,6 @@ public class LuonnonlaitTest {
         assertEquals(0, kappale.getNopeusX(), 0.001);
     }
 
-    @Test
-    public void xDeltaLasketaanOikein() {
-        kappale2 = kappaleet.get(0);
-        assertEquals(4, lait.xPaikkaMuutoksenLaskija(kappale, kappale2), 0.001);
-    }
-
-    @Test
-    public void yDeltaLasketaanOikein() {
-        kappale2 = kappaleet.get(0);
-        assertEquals(2, lait.yPaikkaMuutoksenLaskija(kappale, kappale2), 0.001);
-    }
-
-    @Test
-    public void kulmaLasketaanOikein() {
-        kappale2 = kappaleet.get(0);
-        double deltapaikkaX = Math.abs(kappale2.getPaikkaX() - kappale.getPaikkaX());
-        double deltapaikkaY = Math.abs(kappale2.getPaikkaY() - kappale.getPaikkaY());
-        assertEquals(1.107, lait.kulmanLaskija(deltapaikkaX, deltapaikkaY), 0.001);
-    }
-
-    @Test
-    public void etaisyysLasketaanOikein() {
-        kappale2 = kappaleet.get(0);
-        double deltapaikkaX = Math.abs(kappale2.getPaikkaX() - kappale.getPaikkaX());
-        double deltapaikkaY = Math.abs(kappale2.getPaikkaY() - kappale.getPaikkaY());
-        assertEquals(4.472, lait.etaisyydenLaskija(deltapaikkaX, deltapaikkaY), 0.001);
-    }
-
-    @Test
-    public void kokonaisvoimaLasketaanOikein() {
-        kappale2 = kappaleet.get(0);
-        double deltapaikkaX = Math.abs(kappale2.getPaikkaX() - kappale.getPaikkaX());
-        double deltapaikkaY = Math.abs(kappale2.getPaikkaY() - kappale.getPaikkaY());
-        double etaisyys = lait.etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
-        assertEquals(1.6685, lait.voimanLaskija(kappale, kappale2, etaisyys), 0.001);
-    }
-
-    @Test
-    public void voimanYKomponenttiLasketaanOikein() {
-        kappale2 = kappaleet.get(0);
-        double deltapaikkaX = lait.xPaikkaMuutoksenLaskija(kappale2, kappale);
-        double deltapaikkaY = lait.yPaikkaMuutoksenLaskija(kappale2, kappale);
-        double etaisyys = lait.etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
-        double kulma = lait.kulmanLaskija(deltapaikkaX, deltapaikkaY);
-        double voima = lait.voimanLaskija(kappale, kappale2, etaisyys);
-        assertEquals(0.7461, lait.voimanYKomponentinLaskija(voima, kulma), 0.001);
-    }
-
-    @Test
-    public void voimanXKomponenttiLasketaanOikein() {
-        kappale2 = kappaleet.get(0);
-        double deltapaikkaX = Math.abs(kappale2.getPaikkaX() - kappale.getPaikkaX());
-        double deltapaikkaY = Math.abs(kappale2.getPaikkaY() - kappale.getPaikkaY());
-        double etaisyys = lait.etaisyydenLaskija(deltapaikkaX, deltapaikkaY);
-        double kulma = lait.kulmanLaskija(deltapaikkaX, deltapaikkaY);
-        double voima = lait.voimanLaskija(kappale, kappale2, etaisyys);
-        assertEquals(1.4923, lait.voimanXKomponentinLaskija(voima, kulma), 0.001);
-    }
 
     @Test
     public void kappaleLiikkuuAskeleenOikein() { //parempi testi työn alla
@@ -118,10 +60,7 @@ public class LuonnonlaitTest {
         assertEquals(kappale2.getPaikkaY() + kappale2.getNopeusY(), kappale2.getPaikkaY(), 0.00);
     }
 
-    @Test
-    public void kulmanLaskijaPalauttaaNollanKunOsoittajaNolla() {
-        assertEquals(0, lait.kulmanLaskija(0, 5), 0.0);
-    }
+
 
     @Test
     public void onkoMassaaToimii() {
