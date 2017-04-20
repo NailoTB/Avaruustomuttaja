@@ -57,8 +57,8 @@ public class Luonnonlait {
      * Metodi käy kappaleet läpi ja tarkistaa, ovatko kappaleet
      * törmäysetäisyydellä.
      *
-     * @param kappale Isompi kappale.
-     * @param kappaleet Pienempi kappale.
+     * @param kappale Tällä hetkellä käsiteltävä kappale.
+     * @param kappaleet Muut kappaleet.
      */
     public void tormays(Kappale kappale, ArrayList<Kappale> kappaleet) {
         for (Kappale tormaaja : kappaleet) {

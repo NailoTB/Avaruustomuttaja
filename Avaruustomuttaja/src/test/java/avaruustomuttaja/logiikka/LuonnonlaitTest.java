@@ -49,7 +49,6 @@ public class LuonnonlaitTest {
         assertEquals(0, kappale.getNopeusX(), 0.001);
     }
 
-
     @Test
     public void kappaleLiikkuuAskeleenOikein() { //parempi testi työn alla
         kappale2 = kappaleet.get(0);
@@ -60,7 +59,16 @@ public class LuonnonlaitTest {
         assertEquals(kappale2.getPaikkaY() + kappale2.getNopeusY(), kappale2.getPaikkaY(), 0.00);
     }
 
-
+    @Test
+    public void tormaysTapahtuuOikealtaEtaisyydelta() {
+        Kappale uuskappale = new Kappale(100, 0, 0);
+        Kappale uuskappale2 = new Kappale(10, 5, 0);
+        ArrayList<Kappale> uuskappaleet = new ArrayList<>();
+        uuskappaleet.add(uuskappale);
+        uuskappaleet.add(uuskappale2);
+        lait.kappaleetLiikkuuAskeleen(uuskappaleet);
+        assertEquals(110, uuskappale.getMassa(), 0.0);
+    }
 
     @Test
     public void onkoMassaaToimii() {
