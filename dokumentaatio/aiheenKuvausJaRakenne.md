@@ -17,7 +17,6 @@ Kappaleet liikkuvat avaruudessa vaikuttaen toisiinsa gravitaatiovuorovaikutuksel
 ![Luokkakaavio](https://github.com/NailoTB/Avaruustomuttaja/blob/master/dokumentaatio/luokkakaavio.png)
 
 **Sekvenssikaaviot**
-Simulaation käynnistäminen
 
 ![SimulaationKaynnistaminen](https://github.com/NailoTB/Avaruustomuttaja/blob/master/dokumentaatio/sekvenssi_simulaationKaynnistaminen.png)
 
