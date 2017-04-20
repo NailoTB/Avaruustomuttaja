@@ -7,7 +7,7 @@ public class Luonnonlait {
 
     private double g = 6.674;
     private Laskuapuri laske;
-    
+
     public Luonnonlait() {
         laske = new Laskuapuri();
     }
@@ -69,7 +69,7 @@ public class Luonnonlait {
             double deltapaikkaX = laske.xPaikkaMuutoksenLaskija(tormaaja, kappale);
             double deltapaikkaY = laske.yPaikkaMuutoksenLaskija(tormaaja, kappale);
 
-            if (laske.etaisyydenLaskija(deltapaikkaX, deltapaikkaY) < tormaaja.laskeLeveys() -1) {
+            if (laske.etaisyydenLaskija(deltapaikkaX, deltapaikkaY) < tormaaja.laskeLeveys() - 1) {
                 if (tormaaja.getMassa() >= kappale.getMassa()) {
                     liikemaaranSailyminen(tormaaja, kappale);
                 } else {
@@ -120,8 +120,8 @@ public class Luonnonlait {
     public void kappaleetLiikkuuAskeleen(ArrayList<Kappale> kappaleet) {
 
         for (Kappale kappale : kappaleet) {
-            tormays(kappale, kappaleet);
             gravitaatio(kappale, kappaleet);
+            tormays(kappale, kappaleet);
         }
         for (Kappale kappale : kappaleet) {
             kappale.muutaPaikka();
