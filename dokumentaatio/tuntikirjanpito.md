@@ -17,5 +17,5 @@ Päivä | Tunnit | Kuvaus
 06.04.2017 | 1.0h | Javadocin kirjoittamista ja refaktorointia
 06.04.2017 | 1.0h | Käyttöliittymän miettimistä
 10.04.2017 | 1.0h | Pausenappi ja refaktorointia
-
-
+20.04.2017 | 2.0h | Refaktorointia, pari testiä ja JavaDocs kirjoittelua
+20.04.2017 | 1.0h | Sekvenssikaavioiden luomista
