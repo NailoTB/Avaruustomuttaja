@@ -21,3 +21,4 @@ Kappaleet liikkuvat avaruudessa vaikuttaen toisiinsa gravitaatiovuorovaikutuksel
 
 ![SimulaationKaynnistaminen](https://github.com/NailoTB/Avaruustomuttaja/blob/master/dokumentaatio/sekvenssi_simulaationKaynnistaminen.png)
 
+![SimulaationPysayttaminen](https://github.com/NailoTB/Avaruustomuttaja/blob/master/dokumentaatio/sekvenssi_simulaationPysayttaminen.png)
