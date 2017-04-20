@@ -1,6 +1,6 @@
 # Avaruustomuttaja
 
-Kaksiulotteinen avaruussimulaattori.
+Kaksiulotteinen avaruussimulaattori taivaankappaleiden liikkeistä.
 
 ## Dokumentaatio
 * [Aiheen kuvaus ja rakenne](https://github.com/NailoTB/Avaruustomuttaja/blob/master/dokumentaatio/aiheenKuvausJaRakenne.md)
