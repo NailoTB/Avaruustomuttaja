@@ -1,7 +1,7 @@
 # Projektin kuvaus
 
 **Aihe:** Fysiikkasimulaattori avaruuden kappaleiden kiertoradoista ja interaktioista. 
-Kappaleet voivat törmätä, yhdistyä ja repiä toisia kappaleita pienemmiksi kappaleiksi.
+Kappaleet liikkuvat avaruudessa vaikuttaen toisiinsa gravitaatiovuorovaikutuksella. Kappaleet voivat myös törmätä ja yhdistyä.
 
 **Käyttäjät:** Tähtitieteen opiskelijat ja aiheesta kiinnostuneet.
 
@@ -9,7 +9,7 @@ Kappaleet voivat törmätä, yhdistyä ja repiä toisia kappaleita pienemmiksi k
 
 * kappaleiden liikkeiden seuraaminen
 * kappaleiden lisääminen
-* kappaleiden ratojen muokkaaminen
+* simulaation pysäyttäminen
 
 
 **Luokkakaavio:**
