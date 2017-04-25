@@ -105,7 +105,7 @@ public class Kappale {
         int x = (int) this.paikkax;
         int y = (int) this.paikkay;
         int leveys = (int) laskeLeveys();
-        graphics.fillOval(x, y, leveys, leveys);
+        graphics.fillOval(x - leveys/2, y - leveys/2, leveys, leveys);
     }
 
 }
