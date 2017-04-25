@@ -5,6 +5,7 @@
  */
 package avaruustomuttaja.gui;
 
+import avaruustomuttaja.kappale.Kappale;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,6 +24,7 @@ public class PausePlay implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         this.simuloija.paallaPois();
+
     }
 
 }

@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 public class Kayttoliittyma implements Runnable {
@@ -22,7 +23,7 @@ public class Kayttoliittyma implements Runnable {
     Luonnonlait lait;
     boolean paalla;
     Simuloija simuloija;
-    
+
     /**
      * Kayttoliittyman konstruktori.
      *
@@ -56,29 +57,46 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private JPanel luoValikko() {
-        JPanel panel = new JPanel(new GridLayout(3, 1));
+        JPanel panel = new JPanel(new GridLayout(7, 1));
         JButton pausenappi = new JButton("Pause / Play");
 
         PausePlay paallePois = new PausePlay(this.simuloija);
         pausenappi.addActionListener(paallePois);
 
-        JSlider massaSlider = new JSlider(JSlider.HORIZONTAL, 0, 1000, 500);
-        massaSlider.setMajorTickSpacing(200);
+        JSlider massaSlider = new JSlider(JSlider.HORIZONTAL, 0, 500, 250);
+        JSlider xNopeusSlider = new JSlider(JSlider.HORIZONTAL, -15, 15, 0);
+        JSlider yNopeusSlider = new JSlider(JSlider.HORIZONTAL, -15, 15, 0);
+
+        massaSlider.setMajorTickSpacing(100);
         massaSlider.setPaintTicks(true);
         massaSlider.setPaintLabels(true);
+        xNopeusSlider.setMajorTickSpacing(5);
+        xNopeusSlider.setPaintTicks(true);
+        xNopeusSlider.setPaintLabels(true);
+        yNopeusSlider.setMajorTickSpacing(5);
+        yNopeusSlider.setPaintTicks(true);
+        yNopeusSlider.setPaintLabels(true);
         panel.add(pausenappi);
-        panel.add(new JLabel("Massa: "));
+        panel.add(new JLabel("X-suuntainen nopeus: ", SwingConstants.CENTER));
+        panel.add(xNopeusSlider);
+        panel.add(new JLabel("Y-suuntainen nopeus: ",SwingConstants.CENTER));
+        panel.add(yNopeusSlider);
+        panel.add(new JLabel("Massa: ", SwingConstants.CENTER));
         panel.add(massaSlider);
+        frame.addMouseListener(new LisaaKappale(this.simuloija, massaSlider, xNopeusSlider, yNopeusSlider));
+
         return panel;
     }
+
     /**
      * Käskee simuloijaa simuloimaan ja piirtämään alustan uudestaan.
-     * @throws InterruptedException 
+     *
+     * @throws InterruptedException
      */
     public void simuloi() throws InterruptedException {
         this.simuloija.piirraUusiks();
     }
-    
+
     public JFrame getFrame() {
         return frame;
     }
