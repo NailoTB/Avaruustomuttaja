@@ -45,7 +45,7 @@ public class Simuloija {
                 piirtoalusta.repaint();
                 Toolkit.getDefaultToolkit().sync();
             }
-            TimeUnit.MILLISECONDS.sleep(50);
+            TimeUnit.MILLISECONDS.sleep(20);
         }
     }
      /**
