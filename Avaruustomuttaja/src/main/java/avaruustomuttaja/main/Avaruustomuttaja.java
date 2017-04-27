@@ -23,7 +23,7 @@ public class Avaruustomuttaja {
         ArrayList<Kappale> kappaleet = new ArrayList<>();
         kappaleet.add((new Kappale(150, 300, 300)));
         kappaleet.add((new Kappale(50, 200, 100, 1, 0)));
-        kappaleet.add((new Kappale(20, 400, 200, -1, 0)));
+        kappaleet.add((new Kappale(20, 400, 200, -2, 0)));
 
         Luonnonlait lait = new Luonnonlait();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(kappaleet, lait);

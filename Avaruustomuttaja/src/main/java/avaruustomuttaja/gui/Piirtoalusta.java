@@ -15,8 +15,12 @@ public class Piirtoalusta extends JPanel {
      * @param kappaleet kaikki kappaleet.
      */
     public Piirtoalusta(ArrayList<Kappale> kappaleet) {
-        super.setBackground(Color.WHITE);
+        super.setBackground(Color.BLACK);
         this.kappaleet = kappaleet;
+    }
+    
+    public void setKappaleet(ArrayList<Kappale> uudetKappaleet) {
+        this.kappaleet = uudetKappaleet;
     }
 
     @Override

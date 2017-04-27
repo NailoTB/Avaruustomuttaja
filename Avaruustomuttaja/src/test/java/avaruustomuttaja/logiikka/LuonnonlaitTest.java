@@ -71,24 +71,6 @@ public class LuonnonlaitTest {
     }
 
     @Test
-    public void onkoMassaaToimii() {
-        Kappale massaton = new Kappale(-2, 4, -3);
-        assertFalse(lait.onkoMassaa(massaton));
-    }
-
-    @Test
-    public void onkoMassaaToimiiNollassa() {
-        Kappale massaton = new Kappale(0, 4, -3);
-        assertFalse(lait.onkoMassaa(massaton));
-    }
-
-    @Test
-    public void onkoMassaaToimiiHyvin() {
-        Kappale massaton = new Kappale(20, 4, -3);
-        assertTrue(lait.onkoMassaa(massaton));
-    }
-
-    @Test
     public void liikemaaraSailyyTormayksessa() {
         double vanhaNopeus = kappale.getNopeusX();
         double vanhaMassa1 = kappale.getMassa();

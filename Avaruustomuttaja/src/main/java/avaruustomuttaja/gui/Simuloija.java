@@ -11,16 +11,14 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-
 public class Simuloija {
 
     boolean paalla;
     Luonnonlait lait;
     Piirtoalusta piirtoalusta;
     ArrayList<Kappale> kappaleet;
-    
-    
-     /**
+
+    /**
      * Simuloijan konstruktori.
      *
      * @param lait Lait, joiden mukaan toimitaan.
@@ -33,7 +31,8 @@ public class Simuloija {
         this.piirtoalusta = alusta;
         this.kappaleet = kappaleet;
     }
-     /**
+
+    /**
      * Metodi liikuttaa kappaleita askeleen, ja piirtää alustan uudestaan.
      *
      * @throws InterruptedException errori
@@ -43,12 +42,15 @@ public class Simuloija {
             if (this.paalla) {
                 this.lait.kappaleetLiikkuuAskeleen(this.kappaleet);
                 piirtoalusta.repaint();
+                poistaMassattomat();
+
                 Toolkit.getDefaultToolkit().sync();
             }
             TimeUnit.MILLISECONDS.sleep(20);
         }
     }
-     /**
+
+    /**
      * Metodi lisää kappaleen listaan.
      *
      * @param kappale Lisättävä kappale.
@@ -56,11 +58,36 @@ public class Simuloija {
     public void lisaaKappale(Kappale kappale) {
         this.kappaleet.add(kappale);
     }
-     /**
+
+    /**
      * Metodi pysäyttää simuloinnin.
      *
      */
     public void paallaPois() {
         this.paalla = !this.paalla;
+    }
+
+    public void poistaMassattomat() {
+        ArrayList<Kappale> uudetKappaleet = new ArrayList<>();
+        if (this.paalla) {
+            this.paalla = false;
+        }
+        for (Kappale verrattava : this.kappaleet) {
+            if (verrattava.getMassa() > 0) {
+                uudetKappaleet.add(verrattava);
+            }
+        }
+        this.kappaleet = uudetKappaleet;
+        this.piirtoalusta.setKappaleet(this.kappaleet);
+        this.paalla = true;
+    }
+
+    public void poistaKappaleet() {
+        if (this.paalla) {
+            this.paalla = false;
+        }
+        this.kappaleet = new ArrayList<>();
+        this.piirtoalusta.setKappaleet(this.kappaleet);
+        this.paalla = true;
     }
 }

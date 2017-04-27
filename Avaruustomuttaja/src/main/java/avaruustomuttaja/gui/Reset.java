@@ -8,21 +8,21 @@ package avaruustomuttaja.gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PausePlay implements ActionListener {
+public class Reset implements ActionListener {
 
     Simuloija simuloija;
     /**
-     * PausePlay-napin konstruktori.
+     * Reset-napin konstruktori.
      *
-     * @param simuloija luokka, jonka nappi pysäyttää.
+     * @param simuloija luokka, jonka kappaleet resetoidaan.
      */
-    public PausePlay(Simuloija simuloija) {
+    public Reset(Simuloija simuloija) {
         this.simuloija = simuloija;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.simuloija.paallaPois();
+        this.simuloija.poistaKappaleet();
 
     }
 

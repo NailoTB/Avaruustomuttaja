@@ -57,12 +57,16 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private JPanel luoValikko() {
-        JPanel panel = new JPanel(new GridLayout(7, 1));
+        JPanel panel = new JPanel(new GridLayout(8, 1));
         JButton pausenappi = new JButton("Pause / Play");
-
+        JButton resetnappi = new JButton("Reset");
+        
+        Reset reset = new Reset(this.simuloija);
         PausePlay paallePois = new PausePlay(this.simuloija);
+        
         pausenappi.addActionListener(paallePois);
-
+        resetnappi.addActionListener(reset);
+        
         JSlider massaSlider = new JSlider(JSlider.HORIZONTAL, 0, 500, 250);
         JSlider xNopeusSlider = new JSlider(JSlider.HORIZONTAL, -15, 15, 0);
         JSlider yNopeusSlider = new JSlider(JSlider.HORIZONTAL, -15, 15, 0);
@@ -77,6 +81,7 @@ public class Kayttoliittyma implements Runnable {
         yNopeusSlider.setPaintTicks(true);
         yNopeusSlider.setPaintLabels(true);
         panel.add(pausenappi);
+        panel.add(resetnappi);
         panel.add(new JLabel("X-suuntainen nopeus: ", SwingConstants.CENTER));
         panel.add(xNopeusSlider);
         panel.add(new JLabel("Y-suuntainen nopeus: ",SwingConstants.CENTER));

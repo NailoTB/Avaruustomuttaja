@@ -1,5 +1,6 @@
 package avaruustomuttaja.kappale;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Kappale {
@@ -105,6 +106,7 @@ public class Kappale {
         int x = (int) this.paikkax;
         int y = (int) this.paikkay;
         int leveys = (int) laskeLeveys();
+        graphics.setColor(Color.WHITE);
         graphics.fillOval(x - leveys/2, y - leveys/2, leveys, leveys);
     }
 
