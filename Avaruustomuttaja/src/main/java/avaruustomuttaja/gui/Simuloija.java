@@ -7,6 +7,7 @@ package avaruustomuttaja.gui;
 
 import avaruustomuttaja.kappale.Kappale;
 import avaruustomuttaja.logiikka.Luonnonlait;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -42,6 +43,7 @@ public class Simuloija {
             if (this.paalla) {
                 this.lait.kappaleetLiikkuuAskeleen(this.kappaleet);
                 piirtoalusta.repaint();
+                Toolkit.getDefaultToolkit().sync();
             }
             TimeUnit.MILLISECONDS.sleep(50);
         }
