@@ -50,13 +50,23 @@ public class LuonnonlaitTest {
     }
 
     @Test
-    public void kappaleLiikkuuAskeleenOikein() { //parempi testi työn alla
+    public void kappaleLiikkuuAskeleenOikein() {
         kappale2 = kappaleet.get(0);
         ArrayList<Kappale> uusKappale = new ArrayList<>();
         uusKappale.add(kappale2);
         lait.kappaleetLiikkuuAskeleen(uusKappale);
         assertEquals(kappale2.getPaikkaX() + kappale2.getNopeusX(), kappale2.getPaikkaX(), 0.00);
         assertEquals(kappale2.getPaikkaY() + kappale2.getNopeusY(), kappale2.getPaikkaY(), 0.00);
+    }
+    
+    @Test
+    public void kappaleLiikkuuAskeleenOikeinHyvin() { 
+        Kappale kappale2 = new Kappale(10, 10, 10, 5, 0);
+        ArrayList<Kappale> uusKappale = new ArrayList<>();
+        uusKappale.add(kappale2);
+        lait.kappaleetLiikkuuAskeleen(uusKappale);
+        assertEquals(15, kappale2.getPaikkaX(), 0.00);
+        assertEquals(kappale2.getPaikkaY(), kappale2.getPaikkaY(), 0.00);
     }
 
     @Test

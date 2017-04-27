@@ -60,13 +60,13 @@ public class Kayttoliittyma implements Runnable {
         JPanel panel = new JPanel(new GridLayout(8, 1));
         JButton pausenappi = new JButton("Pause / Play");
         JButton resetnappi = new JButton("Reset");
-        
+
         Reset reset = new Reset(this.simuloija);
         PausePlay paallePois = new PausePlay(this.simuloija);
-        
+
         pausenappi.addActionListener(paallePois);
         resetnappi.addActionListener(reset);
-        
+
         JSlider massaSlider = new JSlider(JSlider.HORIZONTAL, 0, 500, 250);
         JSlider xNopeusSlider = new JSlider(JSlider.HORIZONTAL, -15, 15, 0);
         JSlider yNopeusSlider = new JSlider(JSlider.HORIZONTAL, -15, 15, 0);
@@ -84,7 +84,7 @@ public class Kayttoliittyma implements Runnable {
         panel.add(resetnappi);
         panel.add(new JLabel("X-suuntainen nopeus: ", SwingConstants.CENTER));
         panel.add(xNopeusSlider);
-        panel.add(new JLabel("Y-suuntainen nopeus: ",SwingConstants.CENTER));
+        panel.add(new JLabel("Y-suuntainen nopeus: ", SwingConstants.CENTER));
         panel.add(yNopeusSlider);
         panel.add(new JLabel("Massa: ", SwingConstants.CENTER));
         panel.add(massaSlider);
@@ -96,7 +96,7 @@ public class Kayttoliittyma implements Runnable {
     /**
      * Käskee simuloijaa simuloimaan ja piirtämään alustan uudestaan.
      *
-     * @throws InterruptedException
+     * @throws InterruptedException tämmöne errori
      */
     public void simuloi() throws InterruptedException {
         this.simuloija.piirraUusiks();

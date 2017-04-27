@@ -10,23 +10,32 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JSlider;
 
-/**
- *
- * @author Wagahai
- */
 public class LisaaKappale implements MouseListener {
 
     Simuloija simuloija;
     JSlider massaSlaideri;
     JSlider xNopeusSlaideri;
     JSlider yNopeusSlaideri;
+    
+    /**
+     * LisaaKappale - toiminnon konstruktori.
+     *
+     * @param simuloija tällä hetkellä käytettävä simuloija.
+     * @param massaSlaideri slaideri, josta massa luetaan.
+     * @param xNopeusSlaideri slaideri, josta x-suuntainen nopeus luetaan.
+     * @param yNopeusSlaideri slaideri, josta y-suuntainen nopeus luetaan.
+     */
     public LisaaKappale(Simuloija simuloija, JSlider massaSlaideri, JSlider xNopeusSlaideri, JSlider yNopeusSlaideri) {
         this.simuloija = simuloija;
         this.massaSlaideri = massaSlaideri;
         this.xNopeusSlaideri = xNopeusSlaideri;
         this.yNopeusSlaideri = yNopeusSlaideri;
     }
-
+    /**
+     * Metodi lisaa kappaleen, kun hiirellä klikataan.
+     *
+     * @param e hiiritapahtuma.
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         simuloija.paallaPois();
@@ -38,7 +47,7 @@ public class LisaaKappale implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-}
+    }
 
     @Override
     public void mouseReleased(MouseEvent e) {
