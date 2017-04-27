@@ -20,3 +20,4 @@ Päivä | Tunnit | Kuvaus
 20.04.2017 | 2.0h | Refaktorointia, pari testiä ja JavaDocs kirjoittelua
 20.04.2017 | 1.0h | Sekvenssikaavioiden luomista
 25.04.2017 | 1.0h | Klikkausmahdollisuus ja slaidereita
+27.04.2017 | 0.2h | Simulaation nopeuttaminen
