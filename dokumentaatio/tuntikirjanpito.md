@@ -21,3 +21,6 @@ Päivä | Tunnit | Kuvaus
 20.04.2017 | 1.0h | Sekvenssikaavioiden luomista
 25.04.2017 | 1.0h | Klikkausmahdollisuus ja slaidereita
 27.04.2017 | 0.2h | Simulaation nopeuttaminen
+27.04.2017 | 1.0h | Törmäyksen korjaaminen ja massattomien kappaleiden automaattinen poisto
+27.04.2017 | 0.5h | Reset-napin lisääminen
+27.04.2017 | 0.5h | Dokumentaation päivittely
