@@ -66,7 +66,10 @@ public class Simuloija {
     public void paallaPois() {
         this.paalla = !this.paalla;
     }
-
+    /**
+     * Metodi käy kappaleet läpi ja poistaa massattomat.
+     *
+     */
     public void poistaMassattomat() {
         ArrayList<Kappale> uudetKappaleet = new ArrayList<>();
         if (this.paalla) {
@@ -81,7 +84,10 @@ public class Simuloija {
         this.piirtoalusta.setKappaleet(this.kappaleet);
         this.paalla = true;
     }
-
+    /**
+     * Metodi käy kappaleet läpi ja poistaa kaikki kappaleet.
+     * Metodi resetoi simulaation.
+     */
     public void poistaKappaleet() {
         if (this.paalla) {
             this.paalla = false;

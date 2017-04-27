@@ -19,6 +19,11 @@ public class Piirtoalusta extends JPanel {
         this.kappaleet = kappaleet;
     }
     
+    /**
+     * Metodi asettaa piirtoalustalle piirrettävät kappaleet.
+     * 
+     * @param uudetKappaleet piirtoalustalle asetettavat uudet kappaleet
+     */
     public void setKappaleet(ArrayList<Kappale> uudetKappaleet) {
         this.kappaleet = uudetKappaleet;
     }
