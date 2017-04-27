@@ -125,9 +125,12 @@ public class Luonnonlait {
 
         for (Kappale kappale : kappaleet) {
             gravitaatio(kappale, kappaleet);
-            tormays(kappale, kappaleet);
-
         }
+        
+        for (Kappale kappale : kappaleet) {
+            tormays(kappale, kappaleet);
+        }
+        
         for (Kappale kappale : kappaleet) {
             kappale.muutaPaikka();
         }
