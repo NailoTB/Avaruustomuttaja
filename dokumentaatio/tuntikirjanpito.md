@@ -24,3 +24,7 @@ Päivä | Tunnit | Kuvaus
 27.04.2017 | 1.0h | Törmäyksen korjaaminen ja massattomien kappaleiden automaattinen poisto
 27.04.2017 | 0.5h | Reset-napin lisääminen
 27.04.2017 | 0.5h | Dokumentaation päivittely
+03.05.2017 | 0.5h | Testien lisäilyä
+04.05.2017 | 1.0h | Testien viilaamista ja refaktorointia
+04.05.2017 | 1.0h | Dokumentointia
+
