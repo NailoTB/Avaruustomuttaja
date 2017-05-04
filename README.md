@@ -8,5 +8,5 @@ Kaksiulotteinen avaruussimulaattori taivaankappaleiden liikkeistä.
 * [Käyttöohjeet](https://github.com/NailoTB/Avaruustomuttaja/blob/master/dokumentaatio/käyttöohjeet.md)
 * [pit-raportti](https://htmlpreview.github.io/?https://github.com/NailoTB/Avaruustomuttaja/blob/master/dokumentaatio/pit/index.html)
 * [checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/NailoTB/Avaruustomuttaja/blob/master/dokumentaatio/checkstyle/checkstyle.html)
-* [javadoc](https://htmlpreview.github.io/?https://github.com/NailoTB/Avaruustomuttaja/blob/master/dokumentaatio/javadoc/index.html)
+* [javadoc](https://htmlpreview.github.io/?https://github.com/NailoTB/Avaruustomuttaja/blob/master/javadoc/index.html)
 
