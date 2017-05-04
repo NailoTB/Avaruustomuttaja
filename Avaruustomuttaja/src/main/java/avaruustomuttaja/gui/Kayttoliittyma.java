@@ -68,8 +68,8 @@ public class Kayttoliittyma implements Runnable {
         resetnappi.addActionListener(reset);
 
         JSlider massaSlider = new JSlider(JSlider.HORIZONTAL, 0, 200, 100);
-        JSlider xNopeusSlider = new JSlider(JSlider.HORIZONTAL, -15, 15, 0);
-        JSlider yNopeusSlider = new JSlider(JSlider.HORIZONTAL, -15, 15, 0);
+        JSlider xNopeusSlider = new JSlider(JSlider.HORIZONTAL, -10, 10, 0);
+        JSlider yNopeusSlider = new JSlider(JSlider.HORIZONTAL, -10, 10, 0);
 
         massaSlider.setMajorTickSpacing(50);
         massaSlider.setPaintTicks(true);

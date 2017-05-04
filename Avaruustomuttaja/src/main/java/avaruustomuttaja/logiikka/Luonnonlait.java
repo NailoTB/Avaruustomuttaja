@@ -71,14 +71,10 @@ public class Luonnonlait {
 
             double deltapaikkaX = laske.xPaikkaMuutoksenLaskija(tormaaja, kappale);
             double deltapaikkaY = laske.yPaikkaMuutoksenLaskija(tormaaja, kappale);
-            if (laske.etaisyydenLaskija(deltapaikkaX, deltapaikkaY) < tormaaja.laskeLeveys()) {
-                if (tormaaja.getMassa() >= kappale.getMassa()) {
-                    liikemaaranSailyminen(tormaaja, kappale);
-                } else {
-                    liikemaaranSailyminen(kappale, tormaaja);
-                }
+            if (laske.etaisyydenLaskija(deltapaikkaX, deltapaikkaY) < tormaaja.laskeLeveys()
+                    || laske.etaisyydenLaskija(deltapaikkaX, deltapaikkaY) < kappale.laskeLeveys()) {
+                liikemaaranSailyminen(tormaaja, kappale);
             }
-
         }
     }
 
@@ -86,34 +82,34 @@ public class Luonnonlait {
      * Metodi yhdistää pienemmän kappaleen isompaan ja laskee isomman kappaleen
      * liikemäärän säilymisen.
      *
-     * @param isompi Isompi kappale.
-     * @param pienempi Pienempi kappale.
+     * @param kappale1 Ensimmäinen kappale.
+     * @param kappale2 Toinen kappale.
      */
-    public void liikemaaranSailyminen(Kappale isompi, Kappale pienempi) {
+    public void liikemaaranSailyminen(Kappale kappale1, Kappale kappale2) {
         double nopeusX = 0;
         double nopeusY = 0;
 
-        nopeusX = (isompi.getMassa() * isompi.getNopeusX()
-                + pienempi.getMassa() * pienempi.getNopeusX())
-                / (isompi.getMassa() + pienempi.getMassa());
+        nopeusX = (kappale1.getMassa() * kappale1.getNopeusX()
+                + kappale2.getMassa() * kappale2.getNopeusX())
+                / (kappale1.getMassa() + kappale2.getMassa());
 
-        nopeusY = (isompi.getMassa() * isompi.getNopeusY()
-                + pienempi.getMassa() * pienempi.getNopeusY())
-                / (isompi.getMassa() + pienempi.getMassa());
+        nopeusY = (kappale1.getMassa() * kappale1.getNopeusY()
+                + kappale2.getMassa() * kappale2.getNopeusY())
+                / (kappale1.getMassa() + kappale2.getMassa());
 
-        kappaleidenYhdistyminen(isompi, pienempi);
-        isompi.setNopeus(nopeusX, nopeusY);
+        kappaleidenYhdistyminen(kappale1, kappale2);
+        kappale1.setNopeus(nopeusX, nopeusY);
     }
 
     /**
      * Metodi yhdistää pienemmän kappaleen isompaan.
      *
-     * @param isompi Isompi kappale.
-     * @param pienempi Pienempi kappale.
+     * @param kappale1 Ensimmäinen kappale.
+     * @param kappale2 Toinen kappale.
      */
-    public void kappaleidenYhdistyminen(Kappale isompi, Kappale pienempi) {
-        isompi.muutaMassa(pienempi.getMassa());
-        pienempi.muutaMassa(-pienempi.getMassa());
+    public void kappaleidenYhdistyminen(Kappale kappale1, Kappale kappale2) {
+        kappale1.muutaMassa(kappale2.getMassa());
+        kappale2.muutaMassa(-kappale2.getMassa());
     }
 
     /**
