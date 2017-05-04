@@ -71,14 +71,14 @@ public class Luonnonlait {
 
             double deltapaikkaX = laske.xPaikkaMuutoksenLaskija(tormaaja, kappale);
             double deltapaikkaY = laske.yPaikkaMuutoksenLaskija(tormaaja, kappale);
-
-            if (laske.etaisyydenLaskija(deltapaikkaX, deltapaikkaY) < tormaaja.laskeLeveys() - 1) {
+            if (laske.etaisyydenLaskija(deltapaikkaX, deltapaikkaY) < tormaaja.laskeLeveys()) {
                 if (tormaaja.getMassa() >= kappale.getMassa()) {
                     liikemaaranSailyminen(tormaaja, kappale);
                 } else {
                     liikemaaranSailyminen(kappale, tormaaja);
                 }
             }
+
         }
     }
 
@@ -126,11 +126,11 @@ public class Luonnonlait {
         for (Kappale kappale : kappaleet) {
             gravitaatio(kappale, kappaleet);
         }
-        
+
         for (Kappale kappale : kappaleet) {
             tormays(kappale, kappaleet);
         }
-        
+
         for (Kappale kappale : kappaleet) {
             kappale.muutaPaikka();
         }

@@ -41,7 +41,7 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Avaruustomuttaja");
-        frame.setPreferredSize(new Dimension(1000, 500));
+        frame.setPreferredSize(new Dimension(1280, 720));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,11 +67,11 @@ public class Kayttoliittyma implements Runnable {
         pausenappi.addActionListener(paallePois);
         resetnappi.addActionListener(reset);
 
-        JSlider massaSlider = new JSlider(JSlider.HORIZONTAL, 0, 500, 250);
+        JSlider massaSlider = new JSlider(JSlider.HORIZONTAL, 0, 200, 100);
         JSlider xNopeusSlider = new JSlider(JSlider.HORIZONTAL, -15, 15, 0);
         JSlider yNopeusSlider = new JSlider(JSlider.HORIZONTAL, -15, 15, 0);
 
-        massaSlider.setMajorTickSpacing(100);
+        massaSlider.setMajorTickSpacing(50);
         massaSlider.setPaintTicks(true);
         massaSlider.setPaintLabels(true);
         xNopeusSlider.setMajorTickSpacing(5);

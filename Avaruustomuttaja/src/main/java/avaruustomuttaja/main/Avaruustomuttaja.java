@@ -11,19 +11,21 @@ import avaruustomuttaja.logiikka.Luonnonlait;
 import java.util.ArrayList;
 import javax.swing.SwingUtilities;
 
-
 public class Avaruustomuttaja {
+
     /**
      * Main metodi.
+     *
      * @param args Magiaa.
      * @throws InterruptedException Errori.
      */
     public static void main(String[] args) throws InterruptedException {
 
         ArrayList<Kappale> kappaleet = new ArrayList<>();
-        kappaleet.add((new Kappale(150, 300, 300)));
-        kappaleet.add((new Kappale(50, 200, 100, 1, 0)));
-        kappaleet.add((new Kappale(20, 400, 200, -2, 0)));
+        kappaleet.add((new Kappale(400, 500, 400)));
+        kappaleet.add((new Kappale(30, 500, 100, 3, 0)));
+        kappaleet.add((new Kappale(20, 500, 500, -4.5, 0)));
+        kappaleet.add((new Kappale(20, 200, 400, 0, -2.5)));
 
         Luonnonlait lait = new Luonnonlait();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(kappaleet, lait);

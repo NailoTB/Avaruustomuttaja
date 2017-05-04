@@ -58,9 +58,9 @@ public class LuonnonlaitTest {
         assertEquals(kappale2.getPaikkaX() + kappale2.getNopeusX(), kappale2.getPaikkaX(), 0.00);
         assertEquals(kappale2.getPaikkaY() + kappale2.getNopeusY(), kappale2.getPaikkaY(), 0.00);
     }
-    
+
     @Test
-    public void kappaleLiikkuuAskeleenOikeinHyvin() { 
+    public void kappaleLiikkuuAskeleenOikeinHyvin() {
         Kappale kappale2 = new Kappale(10, 10, 10, 5, 0);
         ArrayList<Kappale> uusKappale = new ArrayList<>();
         uusKappale.add(kappale2);
@@ -82,11 +82,14 @@ public class LuonnonlaitTest {
 
     @Test
     public void liikemaaraSailyyTormayksessa() {
-        double vanhaNopeus = kappale.getNopeusX();
+        double vanhaNopeusX = kappale.getNopeusX();
+        double vanhaNopeusY = kappale.getNopeusY();
+        Kappale testikappale = kappaleet.get(0);
         double vanhaMassa1 = kappale.getMassa();
-        double vanhaMassa2 = kappaleet.get(0).getMassa();
+        double vanhaMassa2 = testikappale.getMassa();
         lait.liikemaaranSailyminen(kappale, kappaleet.get(0));
-        assertEquals(vanhaMassa1 * vanhaNopeus / (vanhaMassa1 + vanhaMassa2), kappale.getNopeusX(), 0.01);
+        assertEquals(vanhaMassa1 * vanhaNopeusX / (vanhaMassa1 + vanhaMassa2), kappale.getNopeusX(), 0.01);
+        assertEquals(vanhaMassa1 * vanhaNopeusY / (vanhaMassa1 + vanhaMassa2), kappale.getNopeusY(), 0.01);
     }
 
     @Test
