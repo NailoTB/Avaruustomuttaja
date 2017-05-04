@@ -49,7 +49,7 @@
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>      @Override
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>          frame = <strong class="jxr_keyword">new</strong> JFrame(<span class="jxr_string">"Avaruustomuttaja"</span>);
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>          frame.setPreferredSize(<strong class="jxr_keyword">new</strong> Dimension(1000, 500));
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>          frame.setPreferredSize(<strong class="jxr_keyword">new</strong> Dimension(1280, 720));
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>          frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>  
@@ -75,11 +75,11 @@
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>          pausenappi.addActionListener(paallePois);
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>          resetnappi.addActionListener(reset);
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>          JSlider massaSlider = <strong class="jxr_keyword">new</strong> JSlider(JSlider.HORIZONTAL, 0, 500, 250);
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>          JSlider xNopeusSlider = <strong class="jxr_keyword">new</strong> JSlider(JSlider.HORIZONTAL, -15, 15, 0);
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>          JSlider yNopeusSlider = <strong class="jxr_keyword">new</strong> JSlider(JSlider.HORIZONTAL, -15, 15, 0);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          JSlider massaSlider = <strong class="jxr_keyword">new</strong> JSlider(JSlider.HORIZONTAL, 0, 200, 100);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          JSlider xNopeusSlider = <strong class="jxr_keyword">new</strong> JSlider(JSlider.HORIZONTAL, -10, 10, 0);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          JSlider yNopeusSlider = <strong class="jxr_keyword">new</strong> JSlider(JSlider.HORIZONTAL, -10, 10, 0);
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>          massaSlider.setMajorTickSpacing(100);
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          massaSlider.setMajorTickSpacing(50);
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>          massaSlider.setPaintTicks(<strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>          massaSlider.setPaintLabels(<strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>          xNopeusSlider.setMajorTickSpacing(5);
